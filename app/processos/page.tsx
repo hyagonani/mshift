@@ -93,7 +93,7 @@ export default function ProcessosPage() {
                   </div>
                   <h3 className="text-white font-bold text-xl lg:text-2xl mb-3 lg:mb-4 font-sans group-hover:text-secondary transition-colors">Posicionamento de Alto Valor no B2B</h3>
                   <p className="text-slate-400 leading-relaxed text-sm lg:text-base">
-                    Saia da guerra de preços. Você deixa de ser tratado como "freela" e passa a ser visto como um parceiro estratégico indispensável para corporações.
+                    Saia da guerra de preços. Você deixa de ser tratado como &quot;freela&quot; e passa a ser visto como um parceiro estratégico indispensável para corporações.
                   </p>
                 </div>
               </div>
@@ -321,7 +321,7 @@ export default function ProcessosPage() {
                   </div>
                   <div className="md:col-span-6 mt-2 md:mt-0">
                     <p className="text-slate-600 text-sm lg:text-base leading-relaxed">
-                      Alinhamento total do time. O fim do "telefone sem fio" para construir uma equipe fluida que tem autonomia para resolver problemas.
+                      Alinhamento total do time. O fim do &quot;telefone sem fio&quot; para construir uma equipe fluida que tem autonomia para resolver problemas.
                     </p>
                   </div>
                 </div>
@@ -459,7 +459,7 @@ export default function ProcessosPage() {
                   {/* Blockquote */}
                   <blockquote className="border-l-4 border-secondary pl-6 py-2 mb-16">
                     <p className="text-white text-xl md:text-2xl font-serif italic leading-relaxed">
-                      "O Resultado: Você escala seu faturamento com segurança, mantém a margem intacta e conquista a liberdade de tempo que um verdadeiro fundador merece."
+                      &quot;O Resultado: Você escala seu faturamento com segurança, mantém a margem intacta e conquista a liberdade de tempo que um verdadeiro fundador merece.&quot;
                     </p>
                   </blockquote>
 

@@ -100,7 +100,7 @@ export default function ResultadosPage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {/* Card 1 */}
               <div className="bg-white p-8 rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col h-full transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-secondary/30 relative">
-                <span className="absolute -top-6 -left-2 text-8xl font-serif text-slate-100 pointer-events-none select-none">"</span>
+                <span className="absolute -top-6 -left-2 text-8xl font-serif text-slate-100 pointer-events-none select-none">&quot;</span>
                 <div className="flex items-center gap-1 text-secondary mb-6 relative z-10">
                   <Star className="w-5 h-5 fill-current" />
                   <Star className="w-5 h-5 fill-current" />
@@ -119,7 +119,7 @@ export default function ResultadosPage() {
 
               {/* Card 2 */}
               <div className="bg-white p-8 rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col h-full transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-secondary/30 relative">
-                <span className="absolute -top-6 -left-2 text-8xl font-serif text-slate-100 pointer-events-none select-none">"</span>
+                <span className="absolute -top-6 -left-2 text-8xl font-serif text-slate-100 pointer-events-none select-none">&quot;</span>
                 <div className="flex items-center gap-1 text-secondary mb-6 relative z-10">
                   <Star className="w-5 h-5 fill-current" />
                   <Star className="w-5 h-5 fill-current" />
@@ -138,7 +138,7 @@ export default function ResultadosPage() {
 
               {/* Card 3 */}
               <div className="bg-white p-8 rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col h-full transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-secondary/30 relative">
-                <span className="absolute -top-6 -left-2 text-8xl font-serif text-slate-100 pointer-events-none select-none">"</span>
+                <span className="absolute -top-6 -left-2 text-8xl font-serif text-slate-100 pointer-events-none select-none">&quot;</span>
                 <div className="flex items-center gap-1 text-secondary mb-6 relative z-10">
                   <Star className="w-5 h-5 fill-current" />
                   <Star className="w-5 h-5 fill-current" />

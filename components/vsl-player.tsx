@@ -8,6 +8,7 @@ export function VSLPlayer({ url }: { url: string }) {
   const [hasUnmuted, setHasUnmuted] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsMounted(true);
   }, []);
 
