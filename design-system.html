@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MShift - Design System</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Noto+Serif:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS V4 Browser Script for standalone HTML support -->
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+  
+  <!-- Original Styles & Variables -->
+  <style type="text/tailwindcss">
+    @theme {
+      --color-primary: #C49A5A;
+      --color-secondary: #E7AA1B;
+      --color-background-light: #F8FAFC;
+      --color-background-dark: #021526;
+      --color-card-dark: #051E34;
+      --color-surface-dark: #0A2540;
+      --color-dark-blue: #031E40;
+
+      --font-serif: "Playfair Display", serif;
+      --font-sans: "Plus Jakarta Sans", sans-serif;
+      --font-noto: "Noto Serif", serif;
+      --font-montserrat: "Montserrat", sans-serif;
+
+      --background-image-hero-pattern: url('https://www.transparenttextures.com/patterns/cubes.png');
+    }
+
+    @layer utilities {
+      .text-gradient-gold {
+        background: linear-gradient(to right, #E7AA1B, #F4D03F);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .bg-gradient-gold {
+        background: linear-gradient(135deg, #C49A5A 0%, #E7AA1B 100%);
+      }
+      .gold-border {
+        border: 1px solid rgba(196, 154, 90, 0.3);
+      }
+      .animate-bounce-slow {
+        animation: bounce 3s infinite;
+      }
+      .animate-fade-in {
+        animation: fadeIn 0.5s ease-in;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+    }
+  </style>
+</head>
+<body class="font-sans antialiased text-slate-300 bg-background-dark selection:bg-secondary selection:text-white pb-32">
+
+  <!-- Design System Navigation -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-background-dark/95 backdrop-blur-md border-b border-white/10 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <span class="font-serif font-bold text-xl text-gradient-gold">Design System</span>
+        <div class="hidden md:flex space-x-8 text-sm font-medium">
+          <a href="#hero" class="hover:text-secondary transition-colors">Hero</a>
+          <a href="#typography" class="hover:text-secondary transition-colors">Typography</a>
+          <a href="#colors" class="hover:text-secondary transition-colors">Colors</a>
+          <a href="#components" class="hover:text-secondary transition-colors">Components</a>
+          <a href="#layout" class="hover:text-secondary transition-colors">Layout</a>
+          <a href="#motion" class="hover:text-secondary transition-colors">Motion</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 0) Hero -->
+  <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden bg-background-dark mt-16" id="hero">
+    <div class="absolute inset-0 opacity-10 bg-hero-pattern"></div>
+    <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-secondary/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="space-y-8">
+          <div class="inline-block border border-secondary/50 rounded-full px-4 py-1.5 bg-secondary/10 backdrop-blur-sm">
+            <span class="text-secondary text-xs font-bold tracking-widest uppercase">MShift Framework</span>
+          </div>
+          <h1 class="font-serif text-4xl lg:text-6xl font-bold leading-tight text-white">
+            Design System: A base visual para <span class="italic text-gradient-gold">escalar interfaces</span> com padrão
+          </h1>
+          <p class="text-lg text-slate-400 max-w-lg leading-relaxed">
+            Padrões claros, decisões consistentes e execução para sustentar a experiência visual. Saia do caos criativo e assuma o controle do seu front-end.
+          </p>
+          
+          <div class="flex flex-col sm:flex-row gap-4 pt-4">
+            <a class="flex items-center justify-center bg-gradient-gold hover:brightness-110 text-background-dark font-bold text-lg py-4 px-8 rounded-lg shadow-xl shadow-secondary/20 transition-all duration-300 transform hover:-translate-y-1" href="#">
+              Acessar Biblioteca
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 w-5 h-5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+            <div class="flex items-center gap-4 px-4 py-2 border-l border-slate-700">
+              <div class="flex flex-col">
+                <span class="text-white font-bold text-sm">v3.0</span>
+                <span class="text-slate-400 text-xs">Atualizado Hoje</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="relative lg:h-[600px] hidden lg:flex justify-end items-end">
+          <img alt="Hero Visual" width="500" height="600" class="relative z-10 w-full max-w-lg object-cover rounded-t-xl drop-shadow-2xl" src="https://drive.google.com/thumbnail?id=1N7YdllHIE4dMvg9zjeelogPKsOs17HrC&sz=w1000" />
+          <div class="absolute top-1/3 -left-4 z-30 bg-card-dark border border-slate-700 p-4 rounded-xl shadow-2xl max-w-[180px] hidden md:block animate-bounce-slow">
+            <div class="flex items-center gap-2 mb-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-secondary w-5 h-5"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></svg>
+              <span class="text-white font-bold text-sm">Padronizado</span>
+            </div>
+            <p class="text-slate-400 text-xs">Testado em mais de 10 interfaces diferentes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 space-y-24">
+
+    <!-- 1) Typography -->
+    <section id="typography">
+      <div class="border-b border-white/10 pb-4 mb-8">
+        <h2 class="text-3xl font-serif font-bold text-white">1. Typography</h2>
+      </div>
+      
+      <div class="bg-surface-dark rounded-xl shadow-sm border border-slate-700 overflow-hidden">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-card-dark border-b border-slate-700 text-slate-400 text-sm">
+              <th class="p-6 font-medium">Style Name</th>
+              <th class="p-6 font-medium">Preview</th>
+              <th class="p-6 font-medium">Size / Weight</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-700 text-slate-300 bg-background-dark">
+            <tr>
+              <td class="p-6 text-slate-400">Heading 1</td>
+              <td class="p-6"><h1 class="font-serif text-6xl font-bold text-white">The quick brown fox</h1></td>
+              <td class="p-6 text-slate-400">text-6xl (60px) / Bold</td>
+            </tr>
+            <tr>
+              <td class="p-6 text-slate-400">Heading 2</td>
+              <td class="p-6"><h2 class="font-serif text-4xl md:text-5xl font-bold text-white">The quick brown fox</h2></td>
+              <td class="p-6 text-slate-400">text-5xl (48px) / Bold</td>
+            </tr>
+            <tr>
+              <td class="p-6 text-slate-400">Heading 3</td>
+              <td class="p-6"><h3 class="font-serif text-3xl font-bold text-white">The quick brown fox</h3></td>
+              <td class="p-6 text-slate-400">text-3xl (30px) / Bold</td>
+            </tr>
+            <tr>
+              <td class="p-6 text-slate-400">Heading 4</td>
+              <td class="p-6"><h4 class="text-xl font-bold text-white">The quick brown fox</h4></td>
+              <td class="p-6 text-slate-400">text-xl (20px) / Bold</td>
+            </tr>
+            <tr>
+              <td class="p-6 text-slate-400">Body Large</td>
+              <td class="p-6"><p class="text-lg text-slate-300 leading-relaxed">The quick brown fox jumps over the lazy dog.</p></td>
+              <td class="p-6 text-slate-400">text-lg (18px) / Regular</td>
+            </tr>
+            <tr>
+              <td class="p-6 text-slate-400">Body Default</td>
+              <td class="p-6"><p class="text-base text-slate-400">The quick brown fox jumps over the lazy dog.</p></td>
+              <td class="p-6 text-slate-400">text-base (16px) / Regular</td>
+            </tr>
+            <tr>
+              <td class="p-6 text-slate-400">Body Small</td>
+              <td class="p-6"><p class="text-sm text-slate-500">The quick brown fox jumps over the lazy dog.</p></td>
+              <td class="p-6 text-slate-400">text-sm (14px) / Regular</td>
+            </tr>
+            <tr>
+              <td class="p-6 text-slate-400">Caption / Uppercase</td>
+              <td class="p-6"><span class="text-secondary text-xs font-bold tracking-widest uppercase">The quick brown fox</span></td>
+              <td class="p-6 text-slate-400">text-xs (12px) / Bold</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 2) Colors & Surfaces -->
+    <section id="colors">
+      <div class="border-b border-white/10 pb-4 mb-8">
+        <h2 class="text-3xl font-serif font-bold text-white">2. Colors & Surfaces</h2>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+        <!-- Background Dark -->
+        <div class="space-y-2">
+          <div class="h-24 rounded-lg bg-background-dark border border-slate-200 flex items-end p-3">
+            <span class="text-white text-xs font-mono">bg-background-dark</span>
+          </div>
+          <p class="font-bold text-sm text-slate-700">Background Dark</p>
+          <p class="text-xs text-slate-500">#021526</p>
+        </div>
+        <!-- Card Dark -->
+        <div class="space-y-2">
+          <div class="h-24 rounded-lg bg-card-dark border border-slate-200 flex items-end p-3">
+            <span class="text-white text-xs font-mono">bg-card-dark</span>
+          </div>
+          <p class="font-bold text-sm text-slate-700">Card Dark</p>
+          <p class="text-xs text-slate-500">#051E34</p>
+        </div>
+        <!-- Surface Dark -->
+        <div class="space-y-2">
+          <div class="h-24 rounded-lg bg-surface-dark border border-slate-200 flex items-end p-3">
+            <span class="text-white text-xs font-mono">bg-surface-dark</span>
+          </div>
+          <p class="font-bold text-sm text-slate-700">Surface Dark</p>
+          <p class="text-xs text-slate-500">#0A2540</p>
+        </div>
+        <!-- Primary -->
+        <div class="space-y-2">
+          <div class="h-24 rounded-lg bg-primary border border-slate-200 flex items-end p-3">
+            <span class="text-white text-xs font-mono">bg-primary</span>
+          </div>
+          <p class="font-bold text-sm text-slate-700">Primary (Gold)</p>
+          <p class="text-xs text-slate-500">#C49A5A</p>
+        </div>
+        <!-- Secondary -->
+        <div class="space-y-2">
+          <div class="h-24 rounded-lg bg-secondary flex items-end p-3">
+            <span class="text-white text-xs font-mono">bg-secondary</span>
+          </div>
+          <p class="font-bold text-sm text-slate-700">Secondary (Yellow)</p>
+          <p class="text-xs text-slate-500">#E7AA1B</p>
+        </div>
+        <!-- Background Light -->
+        <div class="space-y-2">
+          <div class="h-24 rounded-lg bg-background-light border border-slate-200 flex items-end p-3">
+            <span class="text-slate-800 text-xs font-mono">bg-background-light</span>
+          </div>
+          <p class="font-bold text-sm text-slate-700">Background Light</p>
+          <p class="text-xs text-slate-500">#F8FAFC</p>
+        </div>
+        <!-- Gradient Gold -->
+        <div class="space-y-2">
+          <div class="h-24 rounded-lg bg-gradient-gold flex items-end p-3">
+            <span class="text-background-dark text-xs font-mono">.bg-gradient-gold</span>
+          </div>
+          <p class="font-bold text-sm text-slate-700">Gradient Gold</p>
+        </div>
+        <!-- Text Gradient Gold -->
+        <div class="space-y-2">
+          <div class="h-24 rounded-lg bg-background-dark flex items-center justify-center p-3">
+            <span class="text-gradient-gold text-lg font-bold">Gradient Text</span>
+          </div>
+          <p class="font-bold text-sm text-slate-700">Text Gradient Gold</p>
+          <p class="text-xs text-slate-500">.text-gradient-gold</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3) UI Components -->
+    <section id="components">
+      <div class="border-b border-white/10 pb-4 mb-8">
+        <h2 class="text-3xl font-serif font-bold text-white">3. UI Components</h2>
+      </div>
+
+      <!-- Buttons -->
+      <div class="mb-12">
+        <h3 class="text-xl font-bold mb-6 text-slate-800">Buttons</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-8 bg-background-dark rounded-xl">
+          <!-- Primary Default -->
+          <div class="space-y-4">
+            <p class="text-slate-400 text-sm">Primary (Default)</p>
+            <button class="w-full flex items-center justify-center bg-gradient-gold text-background-dark font-bold text-lg py-4 px-8 rounded-lg shadow-xl shadow-secondary/20 transition-all duration-300">
+              Agendar Mapeamento
+            </button>
+          </div>
+          <!-- Primary Hover (Forced visually for preview) -->
+          <div class="space-y-4">
+            <p class="text-slate-400 text-sm">Primary (Hover State)</p>
+            <button class="w-full flex items-center justify-center bg-gradient-gold brightness-110 -translate-y-1 text-background-dark font-bold text-lg py-4 px-8 rounded-lg shadow-xl shadow-secondary/20 transition-all duration-300">
+              Agendar Mapeamento
+            </button>
+          </div>
+          <!-- Primary Disabled -->
+          <div class="space-y-4">
+            <p class="text-slate-400 text-sm">Primary (Disabled)</p>
+            <button class="w-full flex items-center justify-center bg-gradient-gold opacity-50 cursor-not-allowed text-background-dark font-bold text-lg py-4 px-8 rounded-lg shadow-xl shadow-secondary/20 transition-all duration-300" disabled>
+              Agendar Mapeamento
+            </button>
+          </div>
+          <!-- Secondary Outline -->
+          <div class="space-y-4">
+            <p class="text-slate-400 text-sm">Secondary (Outline)</p>
+            <button class="w-full flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-200 border border-secondary hover:bg-secondary/10 rounded-lg">
+              Conhecer a metodologia
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Inputs & Forms -->
+      <div class="mb-12">
+        <h3 class="text-xl font-bold mb-6 text-slate-800">Inputs & Forms</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 p-8 bg-surface-dark rounded-2xl border border-slate-700 shadow-2xl">
+          <!-- Default -->
+          <div class="space-y-2">
+            <p class="text-slate-400 text-sm">Input (Default)</p>
+            <input 
+              class="w-full bg-background-dark border border-slate-600 rounded-lg px-4 py-3 text-white placeholder-slate-500 transition-colors" 
+              placeholder="Nome Completo" 
+              type="text" 
+            />
+          </div>
+          <!-- Focus -->
+          <div class="space-y-2">
+            <p class="text-slate-400 text-sm">Input (Focus State)</p>
+            <input 
+              class="w-full bg-background-dark border border-secondary ring-1 ring-secondary rounded-lg px-4 py-3 text-white placeholder-slate-500 transition-colors outline-none" 
+              placeholder="E-mail Corporativo" 
+              type="email" 
+            />
+          </div>
+          <!-- Disabled -->
+          <div class="space-y-2">
+            <p class="text-slate-400 text-sm">Input (Disabled State)</p>
+            <input 
+              class="w-full bg-background-dark border border-slate-600 rounded-lg px-4 py-3 text-white placeholder-slate-500 opacity-50 cursor-not-allowed transition-colors" 
+              placeholder="WhatsApp (com DDD)" 
+              type="tel" 
+              disabled
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Cards -->
+      <div>
+        <h3 class="text-xl font-bold mb-6 text-slate-800">Cards (Feature Cards)</h3>
+        <div class="grid md:grid-cols-3 gap-8 p-8 bg-background-dark rounded-xl">
+          <!-- Standard Card -->
+          <div class="bg-card-dark p-8 rounded-none border border-slate-700 hover:border-secondary transition-all duration-300 group relative">
+            <div class="absolute top-0 left-0 w-full h-1 bg-secondary transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+            <div class="mb-6">
+              <span class="text-5xl font-serif text-slate-700 group-hover:text-secondary/20 transition-colors">01</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-4 group-hover:text-secondary transition-colors">Mapeamento Estratégico</h3>
+            <p class="text-slate-400 leading-relaxed">
+              Mapeamos cada engrenagem da sua empresa para encontrar onde o dinheiro está vazando e onde estão as oportunidades.
+            </p>
+          </div>
+
+          <!-- Highlighted Card -->
+          <div class="bg-card-dark p-8 rounded-none border border-secondary shadow-[0_0_30px_rgba(231,170,27,0.1)] group relative">
+            <div class="absolute top-0 right-0 w-16 h-16 bg-gradient-gold opacity-10 rounded-bl-full"></div>
+            <div class="mb-6">
+              <span class="text-5xl font-serif text-secondary opacity-40">02</span>
+            </div>
+            <h3 class="text-xl font-bold mb-4 text-secondary">Plano de Ação Tático</h3>
+            <p class="text-slate-300 leading-relaxed">
+              Você sai com um plano de 180 dias com responsáveis, prazos e KPIs definidos para execução imediata.
+            </p>
+            <div class="mt-6">
+              <span class="inline-flex items-center text-xs font-bold text-background-dark bg-secondary px-3 py-1 rounded-sm">
+                PASSO CRUCIAL
+              </span>
+            </div>
+          </div>
+          
+          <!-- Light Card -->
+          <div class="bg-slate-50 p-8 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mb-6">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-red-600 w-6 h-6"><path d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49"/><path d="M14.084 14.158a3 3 0 0 1-4.242-4.242"/><path d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143"/><path d="m2 2 20 20"/></svg>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 mb-3">Gestão "Eu-quipe"</h3>
+            <ul class="space-y-3">
+              <li class="flex items-start gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-red-500 w-4 h-4 mt-1"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                <span class="text-slate-600 text-sm">Centralização excessiva de decisões</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4) Layout & Spacing -->
+    <section id="layout">
+      <div class="border-b border-white/10 pb-4 mb-8">
+        <h2 class="text-3xl font-serif font-bold text-white">4. Layout & Spacing</h2>
+      </div>
+
+      <div class="bg-surface-dark border-y border-slate-800 py-6 mb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p class="text-slate-400 mb-4 text-sm uppercase">Info Bar Layout (Grid divide)</p>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left divide-y md:divide-y-0 md:divide-x divide-slate-800/50">
+            <div class="flex flex-col md:flex-row items-center md:items-start gap-3 md:pl-4 pt-4 md:pt-0">
+              <div class="w-8 h-8 rounded-full bg-secondary/20"></div>
+              <div>
+                <p class="text-slate-400 text-xs uppercase tracking-wide">Formato</p>
+                <p class="text-white font-medium">Online e Individual</p>
+              </div>
+            </div>
+            <div class="flex flex-col md:flex-row items-center md:items-start gap-3 md:pl-4 pt-4 md:pt-0">
+              <div class="w-8 h-8 rounded-full bg-secondary/20"></div>
+              <div>
+                <p class="text-slate-400 text-xs uppercase tracking-wide">Duração</p>
+                <p class="text-white font-medium">6 meses intensivos</p>
+              </div>
+            </div>
+            <div class="flex flex-col md:flex-row items-center md:items-start gap-3 md:pl-4 pt-4 md:pt-0">
+              <div class="w-8 h-8 rounded-full bg-secondary/20"></div>
+              <div>
+                <p class="text-slate-400 text-xs uppercase tracking-wide">NPS Médio</p>
+                <p class="text-white font-medium">94 de 100</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5) Motion & Interaction -->
+    <section id="motion">
+      <div class="border-b border-white/10 pb-4 mb-8">
+        <h2 class="text-3xl font-serif font-bold text-white">5. Motion & Interaction</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Bounce Slow -->
+        <div class="p-8 bg-background-dark rounded-xl border border-slate-800 flex flex-col items-center justify-center min-h-[200px]">
+          <div class="bg-card-dark border border-slate-700 p-4 rounded-xl shadow-2xl animate-bounce-slow text-center">
+            <span class="text-white font-bold text-sm">.animate-bounce-slow</span>
+          </div>
+          <p class="text-slate-400 mt-6 text-sm">Floating effect used on badges</p>
+        </div>
+        
+        <!-- Hover Lift -->
+        <div class="p-8 bg-card-dark rounded-xl border border-slate-700 flex flex-col items-center justify-center min-h-[200px]">
+          <button class="bg-gradient-gold hover:brightness-110 text-background-dark font-bold py-3 px-6 rounded-lg shadow-xl hover:shadow-secondary/20 transition-all duration-300 transform hover:-translate-y-1">
+            Hover Me
+          </button>
+          <p class="text-slate-600 mt-6 text-sm">Button Lift (.hover:-translate-y-1)</p>
+        </div>
+
+        <!-- Fade In -->
+        <div class="p-8 bg-surface-dark rounded-xl border border-slate-700 flex flex-col items-center justify-center min-h-[200px]">
+          <p class="text-green-500 font-medium animate-fade-in text-center">
+            Message appeared!
+          </p>
+          <p class="text-slate-400 mt-6 text-sm">.animate-fade-in (Forms)</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+  
+  <footer class="mt-24 border-t border-white/10 bg-background-dark py-12 text-center text-slate-500 text-sm">
+    <p>Design System Document - Generated dynamically</p>
+  </footer>
+
+</body>
+</html>

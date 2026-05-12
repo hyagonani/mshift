@@ -1,0 +1,33 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --color-primary: #C49A5A;
+  --color-secondary: #E7AA1B;
+  --color-background-light: #F8FAFC;
+  --color-background-dark: #021526;
+  --color-card-dark: #051E34;
+  --color-surface-dark: #0A2540;
+  --color-dark-blue: #031E40;
+
+  --font-serif: var(--font-playfair), serif;
+  --font-sans: var(--font-jakarta), sans-serif;
+  --font-noto: var(--font-noto), serif;
+  --font-montserrat: var(--font-montserrat), sans-serif;
+
+  --background-image-hero-pattern: url('https://www.transparenttextures.com/patterns/cubes.png');
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    background: linear-gradient(to right, #E7AA1B, #F4D03F);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .bg-gradient-gold {
+    background: linear-gradient(135deg, #C49A5A 0%, #E7AA1B 100%);
+  }
+  .gold-border {
+    border: 1px solid rgba(196, 154, 90, 0.3);
+  }
+}
