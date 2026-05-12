@@ -8,10 +8,17 @@ import { notFound } from 'next/navigation';
 
 import { blogPosts } from '@/lib/blogData';
 import { parseSlug, generateSeoContent } from '@/lib/seoData';
+import { getPostBySlug } from '@/lib/supabase';
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  let post = blogPosts.find((p) => p.slug === slug) as any;
+  const { slug } = await params;
+  let post = await getPostBySlug(slug);
+  
+  if (!post) {
+    post = blogPosts.find((p) => p.slug === slug) as any;
+  }
+
   if (!post) {
     const { topic, city } = parseSlug(slug);
     if (topic) post = generateSeoContent(topic, city);
@@ -22,7 +29,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  let post = blogPosts.find((p) => p.slug === slug) as any;
+  let post = await getPostBySlug(slug);
+
+  if (!post) {
+    post = blogPosts.find((p) => p.slug === slug) as any;
+  }
 
   if (!post) {
     const { topic, city } = parseSlug(slug);

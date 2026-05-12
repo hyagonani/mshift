@@ -1,9 +1,19 @@
 import { MetadataRoute } from 'next';
 import { blogPosts } from '@/lib/blogData';
 import { SEO_TOPICS, CITIES, generateSeoSlug } from '@/lib/seoData';
+import { fetchSupabase } from '@/lib/supabase';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://mshift.com.br';
+
+  // Buscar posts do Supabase
+  const supabasePostsData = await fetchSupabase('posts?select=slug,created_at&published=eq.true');
+  const supabasePosts = (supabasePostsData || []).map((post: any) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: new Date(post.created_at || new Date()),
+    changeFrequency: 'weekly' as const,
+    priority: 0.9,
+  }));
 
   const originalPosts = blogPosts.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
@@ -41,5 +51,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: route === '' ? 1 : 0.9,
   }));
 
-  return [...staticRoutes, ...originalPosts, ...genericSeoPosts, ...localizedSeoPosts];
+  return [...staticRoutes, ...supabasePosts, ...originalPosts, ...genericSeoPosts, ...localizedSeoPosts];
 }

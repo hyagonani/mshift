@@ -1,41 +1,42 @@
-"use client";
-
-import { useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
 import { NewsletterForm } from '@/components/newsletter-form';
-import { ArrowRight, Calendar, Clock, User, ChevronRight, Search } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import { BlogList } from '@/components/blog-list';
 
 import { blogPosts as originalPosts } from '@/lib/blogData';
 import { SEO_TOPICS, generateSeoContent } from '@/lib/seoData';
+import { getPosts } from '@/lib/supabase';
 
-const seoPosts = SEO_TOPICS.map(topic => {
-  const data = generateSeoContent(topic, null);
-  return {
-    id: data.slug,
-    title: data.title,
-    excerpt: data.excerpt,
-    category: data.category,
-    author: data.author,
-    date: data.date,
-    readTime: data.readTime,
-    image: data.image,
-    slug: data.slug
-  };
-});
+export const revalidate = 3600; // Revalida a cada hora
 
-const blogPosts = [...originalPosts, ...seoPosts];
+export default async function BlogPage() {
+  // Fetch from Supabase
+  const supabasePosts = await getPosts() || [];
+  
+  // Format Supabase posts to match our structure if needed
+  const formattedSupabasePosts = supabasePosts.map((post: any) => ({
+    ...post,
+    // Ensure date is formatted correctly if it's a string from DB
+    date: post.date ? new Date(post.date).toLocaleDateString('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' }) : ''
+  }));
 
-const categories = ["Todos", "Gestão", "Estratégia", "Crescimento", "Cultura", "Vendas", "Metodologia"];
+  const seoPosts = SEO_TOPICS.map(topic => {
+    const data = generateSeoContent(topic, null);
+    return {
+      id: data.slug,
+      title: data.title,
+      excerpt: data.excerpt,
+      category: data.category,
+      author: data.author,
+      date: data.date,
+      readTime: data.readTime,
+      image: data.image,
+      slug: data.slug
+    };
+  });
 
-export default function BlogPage() {
-  const [visibleCount, setVisibleCount] = useState(8); // 8 no grid + 1 destaque = 9 total
-
-  const loadMore = () => {
-    setVisibleCount(prev => prev + 9);
-  };
+  const allPosts = [...formattedSupabasePosts, ...originalPosts, ...seoPosts];
 
   return (
     <div className="min-h-screen bg-background-dark">
@@ -55,122 +56,7 @@ export default function BlogPage() {
           </div>
         </section>
 
-        {/* Search and Categories */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6 border-b border-white/10 pb-8">
-            <div className="flex flex-wrap justify-center md:justify-start gap-2">
-              {categories.map((category) => (
-                <button
-                  key={category}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                    category === "Todos"
-                      ? "bg-secondary text-white shadow-lg shadow-secondary/20"
-                      : "bg-white/5 text-slate-300 hover:bg-white/10"
-                  }`}
-                >
-                  {category}
-                </button>
-              ))}
-            </div>
-            <div className="relative w-full md:w-64">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
-              <input
-                type="text"
-                placeholder="Buscar artigos..."
-                className="w-full pl-10 pr-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-white focus:outline-none focus:border-secondary transition-colors placeholder:text-slate-500"
-              />
-            </div>
-          </div>
-        </section>
-
-        {/* Featured Post */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
-          <Link href={`/blog/${blogPosts[0].slug}`} className="group block relative overflow-hidden rounded-2xl bg-slate-900 aspect-[21/9]">
-            <Image
-              src={blogPosts[0].image}
-              alt={blogPosts[0].title}
-              fill
-              priority
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 1200px"
-              className="object-cover opacity-60 group-hover:scale-105 transition-transform duration-700"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent"></div>
-            <div className="absolute bottom-0 left-0 p-8 md:p-12 max-w-3xl">
-              <span className="inline-block bg-secondary text-white text-xs font-bold px-3 py-1 rounded-full mb-4">DESTAQUE</span>
-              <h2 className="text-3xl md:text-5xl font-serif font-bold text-white mb-4 group-hover:text-secondary transition-colors">
-                {blogPosts[0].title}
-              </h2>
-              <p className="text-slate-300 text-lg mb-6 line-clamp-2">
-                {blogPosts[0].excerpt}
-              </p>
-              <div className="flex items-center gap-6 text-sm text-slate-400">
-                <div className="flex items-center gap-2">
-                  <User className="w-4 h-4" />
-                  <span>{blogPosts[0].author}</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Calendar className="w-4 h-4" />
-                  <span>{blogPosts[0].date}</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Clock className="w-4 h-4" />
-                  <span>{blogPosts[0].readTime} de leitura</span>
-                </div>
-              </div>
-            </div>
-          </Link>
-        </section>
-
-        {/* Blog Grid */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-32">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.slice(1, visibleCount + 1).map((post) => (
-              <article key={post.id} className="group flex flex-col bg-white/5 rounded-xl border border-white/10 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
-                <Link href={`/blog/${post.slug}`} className="relative aspect-[16/9] overflow-hidden">
-                  <Image
-                    src={post.image}
-                    alt={post.title}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute top-4 left-4">
-                    <span className="bg-background-dark/90 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">
-                      {post.category}
-                    </span>
-                  </div>
-                </Link>
-                <div className="p-6 flex-grow flex flex-col">
-                  <div className="flex items-center gap-4 text-[10px] text-slate-400 uppercase tracking-widest mb-3">
-                    <span className="flex items-center gap-1"><Calendar className="w-3 h-3" /> {post.date}</span>
-                    <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {post.readTime}</span>
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-secondary transition-colors">
-                    <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-                  </h3>
-                  <p className="text-slate-300 text-sm leading-relaxed mb-6 line-clamp-3">
-                    {post.excerpt}
-                  </p>
-                  <div className="mt-auto pt-6 border-t border-white/10">
-                    <Link href={`/blog/${post.slug}`} className="inline-flex items-center text-sm font-bold text-secondary hover:translate-x-1 transition-transform">
-                      Ler Artigo Completo <ChevronRight className="ml-1 w-4 h-4" />
-                    </Link>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-          
-          <div className="mt-16 text-center">
-            {visibleCount + 1 < blogPosts.length && (
-              <button 
-                onClick={loadMore}
-                className="px-8 py-4 border border-white/10 rounded-lg text-slate-300 font-bold hover:bg-white/5 transition-colors"
-              >
-                Carregar mais artigos
-              </button>
-            )}
-          </div>
-        </section>
+        <BlogList initialPosts={allPosts} />
 
         {/* Resources Section */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-32">
