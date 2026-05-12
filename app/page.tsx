@@ -42,7 +42,7 @@ export default function Home() {
               </p>
               
               <div className="relative flex lg:hidden justify-center items-end">
-                <Image priority sizes="(max-width: 768px) 100vw, 500px" alt="Willian Pereira, Fundador MShift" width={500} height={600} className="relative z-10 w-full max-w-md object-cover rounded-t-xl drop-shadow-2xl" src="https://drive.google.com/thumbnail?id=1N7YdllHIE4dMvg9zjeelogPKsOs17HrC&sz=w1000" referrerPolicy="no-referrer" />
+                <Image priority sizes="(max-width: 768px) 100vw, 500px" alt="Willian Pereira, Fundador MShift" width={500} height={600} className="relative z-10 w-full max-w-md object-cover rounded-t-xl drop-shadow-2xl" src="https://drive.google.com/thumbnail?id=1NVFgZNcUNVbQvT9h1X4MSaBOB4fXTmdt&sz=w1000" referrerPolicy="no-referrer" />
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
@@ -64,7 +64,7 @@ export default function Home() {
               </div>
             </div>
             <div className="relative lg:h-[600px] hidden lg:flex justify-end items-end">
-              <Image priority sizes="(min-width: 1024px) 500px, 100vw" alt="Willian Pereira, Fundador MShift" width={500} height={600} className="relative z-10 w-full max-w-lg object-cover rounded-t-xl drop-shadow-2xl" src="https://drive.google.com/thumbnail?id=1N7YdllHIE4dMvg9zjeelogPKsOs17HrC&sz=w1000" referrerPolicy="no-referrer" />
+              <Image priority sizes="(min-width: 1024px) 500px, 100vw" alt="Willian Pereira, Fundador MShift" width={500} height={600} className="relative z-10 w-full max-w-lg object-cover rounded-t-xl drop-shadow-2xl" src="https://drive.google.com/thumbnail?id=1NVFgZNcUNVbQvT9h1X4MSaBOB4fXTmdt&sz=w1000" referrerPolicy="no-referrer" />
               <div className="absolute top-1/3 -left-4 z-30 bg-card-dark border border-slate-700 p-4 rounded-xl shadow-2xl max-w-[180px] hidden md:block animate-bounce-slow">
                 <div className="flex items-center gap-2 mb-2">
                   <BadgeCheck className="text-secondary w-5 h-5" />
@@ -229,7 +229,7 @@ export default function Home() {
             <div className="md:col-span-5 hidden md:block">
               <div className="relative">
                 <div className="absolute inset-0 bg-secondary translate-x-4 translate-y-4 rounded-lg"></div>
-                <Image sizes="(min-width: 768px) 500px, 100vw" alt="Willian Pereira Portrait" width={500} height={625} className="relative rounded-lg shadow-xl w-full object-cover aspect-[4/5] filter" src="https://lh3.googleusercontent.com/d/11-253CGZEaPl6n8dmHpII-cS_NQvCAxL=w500" referrerPolicy="no-referrer" />
+                <Image sizes="(min-width: 768px) 500px, 100vw" alt="Willian Pereira Portrait" width={500} height={625} className="relative rounded-lg shadow-xl w-full object-cover aspect-[4/5] filter" src="https://drive.google.com/thumbnail?id=1uvOywOq17-BbCbORdeqNiKyDvogL7-l7&sz=w1000" referrerPolicy="no-referrer" />
               </div>
             </div>
             <div className="md:col-span-7">
@@ -244,7 +244,7 @@ export default function Home() {
               
               <div className="relative md:hidden mb-10 mt-8">
                 <div className="absolute inset-0 bg-secondary translate-x-4 translate-y-4 rounded-lg"></div>
-                <Image sizes="(max-width: 768px) 100vw, 500px" alt="Willian Pereira Portrait" width={500} height={625} className="relative rounded-lg shadow-xl w-full object-cover aspect-[4/5] filter" src="https://lh3.googleusercontent.com/d/11-253CGZEaPl6n8dmHpII-cS_NQvCAxL=w500" referrerPolicy="no-referrer" />
+                <Image sizes="(max-width: 768px) 100vw, 500px" alt="Willian Pereira Portrait" width={500} height={625} className="relative rounded-lg shadow-xl w-full object-cover aspect-[4/5] filter" src="https://drive.google.com/thumbnail?id=1uvOywOq17-BbCbORdeqNiKyDvogL7-l7&sz=w1000" referrerPolicy="no-referrer" />
               </div>
 
               <div className="grid grid-cols-2 sm:flex sm:flex-row justify-between items-center md:items-start gap-y-5 gap-x-2 sm:gap-4 md:gap-6 border-t border-white/10 pt-8 text-center md:text-left">

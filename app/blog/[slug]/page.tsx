@@ -12,7 +12,6 @@ import { getPostBySlug } from '@/lib/supabase';
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const { slug } = await params;
   let post = await getPostBySlug(slug);
   
   if (!post) {

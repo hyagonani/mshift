@@ -8,7 +8,7 @@ import { blogPosts as originalPosts } from '@/lib/blogData';
 import { SEO_TOPICS, generateSeoContent } from '@/lib/seoData';
 import { getPosts } from '@/lib/supabase';
 
-export const revalidate = 3600; // Revalida a cada hora
+export const revalidate = 1800; // Revalida a cada 30 minutos
 
 export default async function BlogPage() {
   // Fetch from Supabase

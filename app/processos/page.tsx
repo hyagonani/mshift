@@ -49,7 +49,7 @@ export default function ProcessosPage() {
               <div className="relative rounded-2xl overflow-hidden border border-white/5 shadow-2xl">
                 <div className="absolute inset-0 bg-secondary/10 mix-blend-overlay z-10"></div>
                 <Image 
-                  src="https://drive.google.com/thumbnail?id=1N7YdllHIE4dMvg9zjeelogPKsOs17HrC&sz=w1000"
+                  src="https://drive.google.com/thumbnail?id=1NVFgZNcUNVbQvT9h1X4MSaBOB4fXTmdt&sz=w1000"
                   alt="Sessão Estratégica"
                   width={500}
                   height={600}
@@ -202,7 +202,7 @@ export default function ProcessosPage() {
                   <div className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-2xl">
                     <div className="absolute inset-0 bg-secondary/5 mix-blend-overlay z-10"></div>
                     <Image 
-                      src="https://lh3.googleusercontent.com/d/11-253CGZEaPl6n8dmHpII-cS_NQvCAxL=w500"
+                      src="https://drive.google.com/thumbnail?id=1uvOywOq17-BbCbORdeqNiKyDvogL7-l7&sz=w1000"
                       alt="Operação Enxuta"
                       width={500}
                       height={600}
