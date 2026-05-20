@@ -14,12 +14,7 @@ export default async function BlogPage() {
   // Fetch from Supabase
   const supabasePosts = await getPosts() || [];
   
-  // Format Supabase posts to match our structure if needed
-  const formattedSupabasePosts = supabasePosts.map((post: any) => ({
-    ...post,
-    // Ensure date is formatted correctly if it's a string from DB
-    date: post.date ? new Date(post.date).toLocaleDateString('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' }) : ''
-  }));
+  const formattedSupabasePosts = supabasePosts;
 
   const seoPosts = SEO_TOPICS.map(topic => {
     const data = generateSeoContent(topic, null);
@@ -36,7 +31,13 @@ export default async function BlogPage() {
     };
   });
 
-  const allPosts = [...formattedSupabasePosts, ...originalPosts, ...seoPosts];
+  // Evita duplicados filtrando posts estáticos e de SEO que já estão no Supabase
+  const supabaseSlugs = new Set(formattedSupabasePosts.map((p: any) => p.slug));
+  const uniqueOriginalPosts = originalPosts.filter(p => !supabaseSlugs.has(p.slug));
+  const uniqueSeoPosts = seoPosts.filter(p => !supabaseSlugs.has(p.slug));
+
+  const allPosts = [...formattedSupabasePosts, ...uniqueOriginalPosts, ...uniqueSeoPosts];
+
 
   return (
     <div className="min-h-screen bg-background-dark">

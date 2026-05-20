@@ -122,5 +122,32 @@ export const blogPosts = [
     readTime: "4 min",
     image: "https://picsum.photos/seed/methodology/800/600",
     slug: "mapeamento-estrategico-inicio"
+  },
+  {
+    id: 7,
+    title: "Síndrome do Gargalo Invisível: Por que sua empresa parou de crescer",
+    content: `
+      <p>Muitos empresários B2B se veem trabalhando 12 horas por dia, mas a empresa simplesmente parou de crescer. Descubra a raiz deste problema.</p>
+      
+      <h2>O Diagnóstico do Caos Operacional</h2>
+      <p>Se você precisa apagar incêndios diariamente e todas as decisões dependem exclusivamente de você, sua empresa sofre da Síndrome do Gargalo Invisível. Isso sabota seu lucro e impede a escala.</p>
+      
+      <h2>O Protocolo de Desafogamento</h2>
+      <p>Para destravar o crescimento, aplicamos uma engenharia reversa que analisa os três principais pontos de estrangulamento:</p>
+      <ul>
+        <li><strong>Operação:</strong> Criação de processos claros para que a equipe execute sem supervisão direta.</li>
+        <li><strong>Finanças:</strong> Margens saudáveis e previsibilidade de caixa para sustentar o crescimento.</li>
+        <li><strong>Equipe:</strong> Alinhamento e autonomia, permitindo que a operação rode sem a dependência do fundador.</li>
+      </ul>
+      
+      <p>Essa é a exata metodologia que usamos para levar negócios reais de patamares de faturamento estagnados para o próximo nível de escala com lucro e liberdade.</p>
+    `,
+    excerpt: "Descubra o diagnóstico por trás da estagnação dos negócios B2B e como destravar o crescimento eliminando a dependência do fundador.",
+    category: "Estratégia",
+    author: "Willian Pereira",
+    date: "05 Fev 2024",
+    readTime: "5 min",
+    image: "https://picsum.photos/seed/bottleneck/800/600",
+    slug: "sindrome-do-gargalo-invisivel"
   }
 ];

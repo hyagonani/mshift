@@ -15,28 +15,37 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.9,
   }));
 
-  const originalPosts = blogPosts.map((post) => ({
-    url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: new Date(),
-    changeFrequency: 'weekly' as const,
-    priority: 0.8,
-  }));
+  const supabaseSlugs = new Set((supabasePostsData || []).map((post: any) => post.slug));
 
-  const genericSeoPosts = SEO_TOPICS.map((topic) => ({
-    url: `${baseUrl}/blog/${generateSeoSlug(topic)}`,
-    lastModified: new Date(),
-    changeFrequency: 'weekly' as const,
-    priority: 0.8,
-  }));
+  const originalPosts = blogPosts
+    .filter((post) => !supabaseSlugs.has(post.slug))
+    .map((post) => ({
+      url: `${baseUrl}/blog/${post.slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    }));
+
+  const genericSeoPosts = SEO_TOPICS
+    .filter((topic) => !supabaseSlugs.has(generateSeoSlug(topic)))
+    .map((topic) => ({
+      url: `${baseUrl}/blog/${generateSeoSlug(topic)}`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    }));
 
   const localizedSeoPosts = SEO_TOPICS.flatMap((topic) => 
-    CITIES.map((city) => ({
-      url: `${baseUrl}/blog/${generateSeoSlug(topic, city)}`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.6,
-    }))
+    CITIES
+      .filter((city) => !supabaseSlugs.has(generateSeoSlug(topic, city)))
+      .map((city) => ({
+        url: `${baseUrl}/blog/${generateSeoSlug(topic, city)}`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly' as const,
+        priority: 0.6,
+      }))
   );
+
 
   const staticRoutes = [
     '',

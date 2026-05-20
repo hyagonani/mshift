@@ -60,14 +60,20 @@ function formatPost(post: any) {
     }
   }
 
+  // Formata a data usando created_at (data real de criação) ou date como fallback
+  const displayDate = post.created_at 
+    ? new Date(post.created_at).toLocaleDateString('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' })
+    : (post.date ? new Date(post.date).toLocaleDateString('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' }) : '');
+
   return {
     ...post,
-    content: cleanContent
+    content: cleanContent,
+    date: displayDate
   };
 }
 
 export async function getPosts() {
-  const posts = await fetchSupabase('posts?select=*&published=eq.true&order=date.desc');
+  const posts = await fetchSupabase('posts?select=*&published=eq.true&order=created_at.desc');
   return posts ? posts.map(formatPost) : [];
 }
 

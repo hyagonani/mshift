@@ -20,7 +20,7 @@ interface Post {
 const categories = ["Todos", "Gestão", "Estratégia", "Crescimento", "Cultura", "Vendas", "Metodologia"];
 
 export function BlogList({ initialPosts }: { initialPosts: Post[] }) {
-  const [visibleCount, setVisibleCount] = useState(8);
+  const [visibleCount, setVisibleCount] = useState(9);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("Todos");
 
