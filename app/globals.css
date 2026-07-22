@@ -16,7 +16,7 @@
   --font-noto: var(--font-noto), serif;
   --font-montserrat: var(--font-montserrat), sans-serif;
 
-  --background-image-hero-pattern: url('https://www.transparenttextures.com/patterns/cubes.png');
+  --background-image-hero-pattern: radial-gradient(rgba(231, 170, 27, 0.08) 1px, transparent 1px);
 }
 
 @layer utilities {

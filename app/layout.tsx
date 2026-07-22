@@ -93,12 +93,12 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
         />
       </head>
       <body suppressHydrationWarning className={`font-sans antialiased text-slate-800  bg-background-light  selection:bg-secondary selection:text-white`}>
-        {/* Google Tag (gtag.js) */}
+        {/* Google Tag (gtag.js) - Optimized lazy loading */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-7R3TXJ34XR"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
