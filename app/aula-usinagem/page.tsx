@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   robots: 'index, follow',
 };
 
-const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/FM7Nhj1FhlB3yeFAVuo79z?s=cl&p=i&ilr=4&amv=0";
+const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/Klu98RzvZ8WFJ0kXnyTqL7?s=cl&p=i&mlu=0";
 
 const DEPOIMENTOS = [
   {
