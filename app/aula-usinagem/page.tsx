@@ -13,21 +13,6 @@ export const metadata: Metadata = {
 
 const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/FM7Nhj1FhlB3yeFAVuo79z?s=cl&p=i&ilr=4&amv=0";
 
-const NICHOS_LIST = [
-  { name: 'USINAGEM DE PRECISÃO', highlight: true },
-  { name: 'CALDEIRARIA INDUSTRIAL', highlight: true },
-  { name: 'TORNEARIA CNC', highlight: true },
-  { name: 'CORTE A LASER & DOBRA', highlight: false },
-  { name: 'FERRAMENTARIA', highlight: false },
-  { name: 'ESTRUTURAS METÁLICAS', highlight: false },
-  { name: 'TRATAMENTO TÉRMICO', highlight: false },
-  { name: 'SOLDA INDUSTRIAL', highlight: false },
-  { name: 'PEÇAS ESPECIAS SOB MEDIDA', highlight: false },
-  { name: 'AUTOMAÇÃO INDUSTRIAL', highlight: false },
-  { name: 'USINAGEM HEAVY-DUTY', highlight: false },
-  { name: 'E MUITO MAIS', highlight: true },
-];
-
 const DEPOIMENTOS = [
   {
     id: 3,
@@ -113,22 +98,6 @@ export default function AulaUsinagemPage() {
             <p className="text-slate-300 text-sm sm:text-lg max-w-2xl mx-auto font-medium leading-relaxed">
               Descubra o método testado para gerar de <strong className="text-secondary font-bold">2 a 3 serviços recorrentes todos os meses</strong> no setor industrial.
             </p>
-          </div>
-
-          {/* Badges Cloud */}
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 max-w-4xl mx-auto mb-8 sm:mb-10">
-            {NICHOS_LIST.map((nicho, idx) => (
-              <span
-                key={idx}
-                className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-bold tracking-wide uppercase shadow-sm ${
-                  nicho.highlight
-                    ? 'bg-gradient-gold text-background-dark ring-1 ring-amber-300/50 scale-105 shadow-amber-500/20'
-                    : 'bg-card-dark text-slate-200 border border-slate-700/80'
-                }`}
-              >
-                {nicho.name}
-              </span>
-            ))}
           </div>
 
           {/* CTA 1 Button & Guarantee */}
