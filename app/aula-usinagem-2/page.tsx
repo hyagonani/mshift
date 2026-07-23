@@ -41,11 +41,11 @@ const DEPOIMENTOS = [
   }
 ];
 
-export default function AulaUsinagemPage() {
+export default function AulaUsinagem2Page() {
   return (
     <>
-      {/* High-Performance Minimal Header */}
-      <header className="fixed top-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 h-16 flex items-center">
+      {/* High-Performance Minimal Header (0 External Image Requests, 0 Framer Motion JS) */}
+      <header className="fixed top-0 left-0 right-0 z-40 bg-background-dark/95 backdrop-blur-md border-b border-white/10 h-16 flex items-center">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-between items-center">
           <div className="flex items-center select-none">
             <Image 
@@ -53,7 +53,7 @@ export default function AulaUsinagemPage() {
               alt="MShift Logo" 
               width={180} 
               height={60} 
-              className="h-10 sm:h-12 w-auto filter brightness-0"
+              className="h-10 sm:h-12 w-auto"
               referrerPolicy="no-referrer"
             />
           </div>
@@ -70,10 +70,10 @@ export default function AulaUsinagemPage() {
         </div>
       </header>
 
-      <main className="min-h-screen bg-slate-50 text-slate-700 pt-20 sm:pt-24 pb-12 sm:pb-16 relative overflow-hidden font-sans selection:bg-secondary selection:text-slate-900">
+      <main className="min-h-screen bg-background-dark text-slate-200 pt-20 sm:pt-24 pb-12 sm:pb-16 relative overflow-hidden font-sans selection:bg-secondary selection:text-white">
         {/* Ambient background glows */}
-        <div className="absolute top-0 right-0 -mr-20 -mt-20 w-[350px] sm:w-[500px] h-[350px] sm:h-[500px] bg-secondary/20 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute top-1/3 left-0 -ml-20 w-[300px] sm:w-[450px] h-[300px] sm:h-[450px] bg-amber-500/20 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-0 right-0 -mr-20 -mt-20 w-[350px] sm:w-[500px] h-[350px] sm:h-[500px] bg-secondary/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/3 left-0 -ml-20 w-[300px] sm:w-[450px] h-[300px] sm:h-[450px] bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 right-0 w-[350px] sm:w-[600px] h-[350px] sm:h-[600px] bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
 
         {/* 1. Top Alert Ribbon */}
@@ -89,19 +89,19 @@ export default function AulaUsinagemPage() {
           {/* Header Title */}
           <div className="text-center space-y-3 sm:space-y-4 mb-6 sm:mb-10">
             <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full border border-secondary/40 bg-secondary/10 backdrop-blur-md">
-              <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-700" />
-              <span className="text-amber-800 text-xs sm:text-sm font-semibold tracking-wide">
+              <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-secondary" />
+              <span className="text-secondary text-xs sm:text-sm font-semibold tracking-wide">
                 AULA AO VIVO: QUARTA-FEIRA ÀS 12H
               </span>
             </div>
 
-            <h1 className="font-sans text-2xl sm:text-5xl md:text-6xl font-black text-slate-900 tracking-tight uppercase leading-snug sm:leading-tight min-h-[4rem] sm:min-h-[7rem]">
+            <h1 className="font-sans text-2xl sm:text-5xl md:text-6xl font-black text-white tracking-tight uppercase leading-snug sm:leading-tight min-h-[4rem] sm:min-h-[7rem]">
               NICHOS DE USINAGEM & METALÚRGICA <br className="hidden sm:inline" />
               QUE <span className="text-gradient-gold italic font-serif">JÁ MULTIPLICARAM RESULTADOS</span>
             </h1>
 
-            <p className="text-slate-600 text-sm sm:text-lg max-w-2xl mx-auto font-medium leading-relaxed">
-              Descubra o método testado para gerar de <strong className="text-amber-600 font-bold">2 a 3 serviços recorrentes todos os meses</strong> no setor industrial.
+            <p className="text-slate-300 text-sm sm:text-lg max-w-2xl mx-auto font-medium leading-relaxed">
+              Descubra o método testado para gerar de <strong className="text-secondary font-bold">2 a 3 serviços recorrentes todos os meses</strong> no setor industrial.
             </p>
           </div>
 
@@ -118,8 +118,8 @@ export default function AulaUsinagemPage() {
               <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 ml-2.5 sm:ml-3 group-hover:translate-x-1 transition-transform" />
             </JoinGroupButton>
 
-            <div className="flex items-center justify-center gap-2 text-slate-600 text-xs sm:text-sm px-3 bg-white/60 py-2.5 rounded-lg border border-slate-200 backdrop-blur-sm max-w-lg mx-auto">
-              <ShieldCheck className="w-4 h-4 text-green-600 flex-shrink-0" />
+            <div className="flex items-center justify-center gap-2 text-slate-400 text-xs sm:text-sm px-3 bg-surface-dark/60 py-2.5 rounded-lg border border-slate-800 backdrop-blur-sm max-w-lg mx-auto">
+              <ShieldCheck className="w-4 h-4 text-green-400 flex-shrink-0" />
               <span>
                 <strong>Não precisa deixar e-mail. Não precisa preencher formulário.</strong> O botão leva direto para o grupo silencioso do WhatsApp.
               </span>
@@ -142,70 +142,64 @@ export default function AulaUsinagemPage() {
         {/* 3. Proof & Testimonials Section */}
         <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
-            <span className="text-amber-700 font-bold text-xs sm:text-sm uppercase tracking-widest bg-amber-100 px-3 py-1 rounded-full border border-amber-200 inline-block mb-2">
+            <span className="text-secondary font-bold text-xs sm:text-sm uppercase tracking-widest bg-secondary/10 px-3 py-1 rounded-full border border-secondary/30 inline-block mb-2">
               RESULTADOS REAIS NA PRÁTICA
             </span>
-            <h2 className="font-serif text-2xl sm:text-4xl md:text-5xl font-bold text-slate-900 leading-tight">
+            <h2 className="font-serif text-2xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
               Veja o que acontece quando você aplica o <span className="text-gradient-gold italic">Mapeamento Estratégico</span>
             </h2>
-            <p className="text-slate-600 text-xs sm:text-base mt-2">
+            <p className="text-slate-400 text-xs sm:text-base mt-2">
               Faturamento real, reuniões agendadas com compradores qualificados e mensagens de confirmação no WhatsApp.
             </p>
           </div>
 
           {/* Testimonial Gallery Component */}
-          {/* Using it inside a wrapper since TestimonialGallery is dark themed */}
-          <div className="bg-background-dark p-6 sm:p-8 rounded-3xl shadow-2xl border border-slate-800 relative overflow-hidden">
-             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
-             <div className="relative z-10">
-                <TestimonialGallery testimonials={DEPOIMENTOS} />
-             </div>
-          </div>
+          <TestimonialGallery testimonials={DEPOIMENTOS} />
         </section>
 
         {/* 4. Core Value Proposition Box */}
         <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-14 relative z-10">
-          <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-10 border border-slate-200 shadow-xl relative overflow-hidden">
+          <div className="bg-gradient-to-b from-surface-dark to-card-dark rounded-2xl sm:rounded-3xl p-5 sm:p-10 border gold-border shadow-xl relative overflow-hidden">
             <div className="space-y-5 sm:space-y-7 text-center sm:text-left relative z-10">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 border border-amber-200 text-amber-800 text-xs font-bold uppercase tracking-wider">
-                <Clock className="w-3.5 h-3.5 text-amber-600" />
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-bold uppercase tracking-wider">
+                <Clock className="w-3.5 h-3.5 text-amber-400" />
                 Quarta-feira às 12h • Ao Vivo e Gratuito
               </div>
 
-              <h2 className="font-serif text-xl sm:text-4xl font-bold text-slate-900 leading-tight sm:leading-snug">
+              <h2 className="font-serif text-xl sm:text-4xl font-bold text-white leading-tight sm:leading-snug">
                 Nessa aula gratuita vou te mostrar como usar o método MShift para <span className="text-gradient-gold italic">gerar de 2 a 3 serviços recorrentes</span> todos os meses no setor de usinagem e metalúrgica
               </h2>
 
-              <div className="space-y-4 text-slate-600 text-sm sm:text-lg leading-relaxed border-t border-slate-200 pt-5">
+              <div className="space-y-4 text-slate-300 text-sm sm:text-lg leading-relaxed border-t border-slate-700/60 pt-5">
                 <p>
                   Essa aula faz sentido para <strong>dono de oficina de usinagem, caldeiraria, tornearia, indústria metalúrgica, gestor de vendas ou prestador de serviço B2B</strong> que já tem uma estrutura operando e precisa gerar novos contratos com mais previsibilidade e lucro.
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4 pt-3 text-left">
-                  <div className="flex items-start gap-3 bg-slate-50 p-3.5 sm:p-4 rounded-xl border border-slate-100">
-                    <CheckCircle2 className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-xs sm:text-sm text-slate-700">
+                  <div className="flex items-start gap-3 bg-background-dark/60 p-3.5 sm:p-4 rounded-xl border border-slate-800">
+                    <CheckCircle2 className="w-4 h-4 text-secondary flex-shrink-0 mt-0.5" />
+                    <span className="text-xs sm:text-sm text-slate-300">
                       <strong>Fim da montanha-russa:</strong> Crie um processo ativo de captação de clientes industriais.
                     </span>
                   </div>
 
-                  <div className="flex items-start gap-3 bg-slate-50 p-3.5 sm:p-4 rounded-xl border border-slate-100">
-                    <CheckCircle2 className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-xs sm:text-sm text-slate-700">
+                  <div className="flex items-start gap-3 bg-background-dark/60 p-3.5 sm:p-4 rounded-xl border border-slate-800">
+                    <CheckCircle2 className="w-4 h-4 text-secondary flex-shrink-0 mt-0.5" />
+                    <span className="text-xs sm:text-sm text-slate-300">
                       <strong>Serviços Recorrentes:</strong> Garanta contratos de médio e longo prazo para manter o caixa forte.
                     </span>
                   </div>
 
-                  <div className="flex items-start gap-3 bg-slate-50 p-3.5 sm:p-4 rounded-xl border border-slate-100">
-                    <CheckCircle2 className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-xs sm:text-sm text-slate-700">
+                  <div className="flex items-start gap-3 bg-background-dark/60 p-3.5 sm:p-4 rounded-xl border border-slate-800">
+                    <CheckCircle2 className="w-4 h-4 text-secondary flex-shrink-0 mt-0.5" />
+                    <span className="text-xs sm:text-sm text-slate-300">
                       <strong>Sem dependência de indicação:</strong> Saiba como abordar compradores qualificados com precisão.
                     </span>
                   </div>
 
-                  <div className="flex items-start gap-3 bg-slate-50 p-3.5 sm:p-4 rounded-xl border border-slate-100">
-                    <CheckCircle2 className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-xs sm:text-sm text-slate-700">
+                  <div className="flex items-start gap-3 bg-background-dark/60 p-3.5 sm:p-4 rounded-xl border border-slate-800">
+                    <CheckCircle2 className="w-4 h-4 text-secondary flex-shrink-0 mt-0.5" />
+                    <span className="text-xs sm:text-sm text-slate-300">
                       <strong>Atração Direta:</strong> Leve o cliente direto da atração para o grupo e agendamento de reuniões.
                     </span>
                   </div>
@@ -233,12 +227,12 @@ export default function AulaUsinagemPage() {
       </main>
 
       {/* Lightweight Footer */}
-      <footer className="bg-white border-t border-slate-200 py-8">
-        <div className="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+      <footer className="bg-background-dark border-t border-slate-800 py-8">
+        <div className="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-400">
           <p>© {new Date().getFullYear()} MShift Consultoria. Todos os direitos reservados.</p>
           <div className="flex gap-4">
-            <Link href="/politica-de-privacidade" target="_blank" className="hover:text-amber-600 transition-colors">Privacidade</Link>
-            <JoinGroupButton href={WHATSAPP_GROUP_URL} target="_blank" className="hover:text-amber-600 transition-colors">Grupo VIP WhatsApp</JoinGroupButton>
+            <Link href="/politica-de-privacidade" target="_blank" className="hover:text-white transition-colors">Privacidade</Link>
+            <JoinGroupButton href={WHATSAPP_GROUP_URL} target="_blank" className="hover:text-white transition-colors">Grupo VIP WhatsApp</JoinGroupButton>
           </div>
         </div>
       </footer>
