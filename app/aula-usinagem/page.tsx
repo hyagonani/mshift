@@ -141,7 +141,7 @@ export default function AulaUsinagemPage() {
               RESULTADOS REAIS NA PRÁTICA
             </span>
             <h2 className="font-serif text-2xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
-              Veja o que acontece quando você aplica o <span className="text-gradient-gold italic">Método MShift</span>
+              Veja o que acontece quando você aplica o <span className="text-gradient-gold italic">Mapeamento Estratégico</span>
             </h2>
             <p className="text-slate-400 text-xs sm:text-base mt-2">
               Faturamento real, reuniões agendadas com compradores qualificados e mensagens de confirmação no WhatsApp.
