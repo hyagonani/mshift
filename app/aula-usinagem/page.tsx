@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 import { ArrowRight, CheckCircle2, MessageCircle, ShieldCheck, Calendar, Clock, Sparkles, Users } from 'lucide-react';
 import { TestimonialGallery } from '@/components/testimonial-gallery';
+import { JoinGroupButton } from '@/components/join-group-button';
 
 export const metadata: Metadata = {
   title: 'Aula Ao Vivo - Usinagem & Metalúrgica | MShift',
@@ -67,7 +68,7 @@ export default function AulaUsinagemPage() {
             </span>
           </Link>
           
-          <Link 
+          <JoinGroupButton 
             href={WHATSAPP_GROUP_URL}
             target="_blank"
             rel="noopener noreferrer"
@@ -75,7 +76,7 @@ export default function AulaUsinagemPage() {
           >
             <span>ENTRAR NO GRUPO</span>
             <ArrowRight className="w-3.5 h-3.5" />
-          </Link>
+          </JoinGroupButton>
         </div>
       </header>
 
@@ -132,7 +133,7 @@ export default function AulaUsinagemPage() {
 
           {/* CTA 1 Button & Guarantee */}
           <div className="max-w-xl mx-auto text-center space-y-3.5 mb-10 sm:mb-16">
-            <Link
+            <JoinGroupButton
               href={WHATSAPP_GROUP_URL}
               target="_blank"
               rel="noopener noreferrer"
@@ -141,7 +142,7 @@ export default function AulaUsinagemPage() {
               <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6 mr-2.5 sm:mr-3 text-slate-950 fill-slate-950/20" />
               <span>ENTRAR NO GRUPO SILENCIOSO DA AULA</span>
               <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 ml-2.5 sm:ml-3 group-hover:translate-x-1 transition-transform" />
-            </Link>
+            </JoinGroupButton>
 
             <div className="flex items-center justify-center gap-2 text-slate-400 text-xs sm:text-sm px-3 bg-surface-dark/60 py-2.5 rounded-lg border border-slate-800 backdrop-blur-sm max-w-lg mx-auto">
               <ShieldCheck className="w-4 h-4 text-green-400 flex-shrink-0" />
@@ -233,7 +234,7 @@ export default function AulaUsinagemPage() {
 
               {/* CTA 2 Button */}
               <div className="pt-4 sm:pt-6 text-center">
-                <Link
+                <JoinGroupButton
                   href={WHATSAPP_GROUP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -242,7 +243,7 @@ export default function AulaUsinagemPage() {
                   <Users className="w-5 h-5 sm:w-6 sm:h-6 mr-2.5 sm:mr-3 text-slate-950" />
                   <span>ENTRAR NO GRUPO DA AULA (QUARTA ÀS 12H)</span>
                   <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 ml-2.5 sm:ml-3 group-hover:translate-x-1 transition-transform" />
-                </Link>
+                </JoinGroupButton>
               </div>
 
             </div>
@@ -257,7 +258,7 @@ export default function AulaUsinagemPage() {
           <p>© {new Date().getFullYear()} MShift Consultoria. Todos os direitos reservados.</p>
           <div className="flex gap-4">
             <Link href="/politica-de-privacidade" className="hover:text-white transition-colors">Privacidade</Link>
-            <Link href={WHATSAPP_GROUP_URL} target="_blank" className="hover:text-white transition-colors">Grupo VIP WhatsApp</Link>
+            <JoinGroupButton href={WHATSAPP_GROUP_URL} target="_blank" className="hover:text-white transition-colors">Grupo VIP WhatsApp</JoinGroupButton>
           </div>
         </div>
       </footer>
