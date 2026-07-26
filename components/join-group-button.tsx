@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
 
 declare global {
   interface Window {
@@ -81,7 +80,7 @@ export function JoinGroupButton({
   };
 
   return (
-    <Link 
+    <a 
       href={href} 
       target={target} 
       rel={rel} 
@@ -89,6 +88,6 @@ export function JoinGroupButton({
       onClick={handleClick}
     >
       {children}
-    </Link>
+    </a>
   );
 }
