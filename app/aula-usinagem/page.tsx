@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   robots: 'index, follow',
 };
 
-const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/D8ATC9wkT9K8IunvpfneRo?s=cl&p=i&mlu=0";
+const WHATSAPP_GROUP_URL = "https://tinyurl.com/aula-usinagem";
 
 const DEPOIMENTOS = [
   {
