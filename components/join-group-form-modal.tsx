@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { Loader2, X } from 'lucide-react';
 
 declare global {
@@ -23,8 +24,13 @@ export function JoinGroupFormModal({
   children,
 }: JoinGroupFormModalProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const [name, setName] = useState('');
   const [whatsapp, setWhatsapp] = useState('');
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -32,23 +38,10 @@ export function JoinGroupFormModal({
     setIsLoading(true);
 
     try {
-      // 1. Enviar para o Webhook
-      await fetch('https://evolution-n8n.ctscwo.easypanel.host/webhook/webnario', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name,
-          whatsapp,
-          source: window.location.href,
-        }),
-      });
+      const eventId = `lead_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`;
 
-      // 2. Disparar eventos de conversão (mantendo o tracking atual)
+      // 1. Disparar eventos síncronos primeiro para não perder o tracking
       if (typeof window !== 'undefined') {
-        const eventId = `lead_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`;
-
         if (typeof window.fbq === 'function') {
           window.fbq(
             'track',
@@ -60,20 +53,6 @@ export function JoinGroupFormModal({
             { eventID: eventId }
           );
         }
-
-        fetch('/api/meta-conversions', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            eventName: 'Lead',
-            eventId: eventId,
-            eventSourceUrl: window.location.href,
-            contentName: 'Aula Usinagem WhatsApp Group',
-            contentCategory: 'Aula Usinagem',
-          }),
-        }).catch((err) => console.error('Error firing CAPI lead event:', err));
 
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
@@ -93,11 +72,42 @@ export function JoinGroupFormModal({
         }
       }
 
+      // 2. Disparar chamadas assíncronas com timeout máximo de 2.5s
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 2500);
+
+      await Promise.allSettled([
+        fetch('https://evolution-n8n.ctscwo.easypanel.host/webhook/webnario', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name,
+            whatsapp,
+            source: typeof window !== 'undefined' ? window.location.href : '',
+          }),
+          signal: controller.signal
+        }),
+        fetch('/api/meta-conversions', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            eventName: 'Lead',
+            eventId: eventId,
+            eventSourceUrl: typeof window !== 'undefined' ? window.location.href : '',
+            contentName: 'Aula Usinagem WhatsApp Group',
+            contentCategory: 'Aula Usinagem',
+          }),
+          signal: controller.signal
+        })
+      ]);
+
+      clearTimeout(timeoutId);
+
       // 3. Redirecionar para o grupo
       window.location.href = href;
     } catch (error) {
       console.error('Error submitting form', error);
-      // Fallback: redirecionar mesmo se der erro no webhook
+      // Fallback: redirecionar mesmo se der erro inesperado
       window.location.href = href;
     } finally {
       setIsLoading(false);
@@ -110,8 +120,8 @@ export function JoinGroupFormModal({
         {children}
       </button>
 
-      {isOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-900/80 backdrop-blur-sm">
+      {isOpen && mounted && createPortal(
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-slate-900/80 backdrop-blur-sm">
           <div className="bg-white rounded-2xl w-full max-w-md shadow-2xl overflow-hidden relative animate-in fade-in zoom-in duration-200">
             <button
               onClick={() => setIsOpen(false)}
@@ -185,7 +195,8 @@ export function JoinGroupFormModal({
               </form>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );
