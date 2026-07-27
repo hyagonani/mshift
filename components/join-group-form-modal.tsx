@@ -27,6 +27,7 @@ export function JoinGroupFormModal({
   const [mounted, setMounted] = useState(false);
   const [name, setName] = useState('');
   const [whatsapp, setWhatsapp] = useState('');
+  const [error, setError] = useState('');
 
   useEffect(() => {
     setMounted(true);
@@ -35,41 +36,59 @@ export function JoinGroupFormModal({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError('');
+
+    if (!name || name.trim().length === 0) {
+      setError('Por favor, insira o seu nome.');
+      return;
+    }
+
+    if (whatsapp.length !== 11) {
+      setError('Por favor, insira um WhatsApp válido com DDD (11 dígitos).');
+      return;
+    }
+
     setIsLoading(true);
 
     try {
       const eventId = `lead_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`;
 
-      // 1. Disparar eventos síncronos primeiro para não perder o tracking
+      // 1. Disparar eventos síncronos com try-catch individuais para evitar bloqueio por AdBlock
       if (typeof window !== 'undefined') {
-        if (typeof window.fbq === 'function') {
-          window.fbq(
-            'track',
-            'Lead',
-            {
-              content_name: 'Aula Usinagem WhatsApp Group',
-              content_category: 'Aula Usinagem',
-            },
-            { eventID: eventId }
-          );
-        }
+        try {
+          if (typeof window.fbq === 'function') {
+            window.fbq(
+              'track',
+              'Lead',
+              {
+                content_name: 'Aula Usinagem WhatsApp Group',
+                content_category: 'Aula Usinagem',
+              },
+              { eventID: eventId }
+            );
+          }
+        } catch (e) { console.warn('FB pixel blocked', e); }
 
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
-          event: 'lead',
-          event_name: 'Lead',
-          event_id: eventId,
-          event_category: 'Conversion',
-          page_location: window.location.href,
-          content_name: 'Aula Usinagem WhatsApp Group',
-        });
-
-        if (typeof window.gtag === 'function') {
-          window.gtag('event', 'generate_lead', {
-            event_category: 'Engagement',
-            event_label: 'Aula Usinagem WhatsApp Group',
+        try {
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            event: 'lead',
+            event_name: 'Lead',
+            event_id: eventId,
+            event_category: 'Conversion',
+            page_location: window.location.href,
+            content_name: 'Aula Usinagem WhatsApp Group',
           });
-        }
+        } catch (e) { console.warn('GTM blocked', e); }
+
+        try {
+          if (typeof window.gtag === 'function') {
+            window.gtag('event', 'generate_lead', {
+              event_category: 'Engagement',
+              event_label: 'Aula Usinagem WhatsApp Group',
+            });
+          }
+        } catch (e) { console.warn('GTag blocked', e); }
       }
 
       // 2. Disparar chamadas assíncronas com timeout máximo de 2.5s
@@ -140,7 +159,7 @@ export function JoinGroupFormModal({
                 </p>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit} noValidate className="space-y-4">
                 <div>
                   <label htmlFor="name" className="block text-sm font-bold text-slate-700 mb-1.5 uppercase tracking-wide">
                     Nome
@@ -163,20 +182,21 @@ export function JoinGroupFormModal({
                   <input
                     type="tel"
                     id="whatsapp"
-                    required
-                    minLength={11}
-                    maxLength={11}
-                    pattern="\d{11}"
-                    title="O número deve ter exatamente 11 dígitos, apenas números (ex: 11999999999)."
                     value={whatsapp}
                     onChange={(e) => {
                       const numericValue = e.target.value.replace(/\D/g, '');
                       setWhatsapp(numericValue);
                     }}
-                    className="w-full px-4 py-3.5 rounded-xl border-2 border-slate-200 focus:border-amber-500 focus:ring-4 focus:ring-amber-500/10 outline-none transition-all text-slate-900 font-medium bg-slate-50 focus:bg-white"
+                    className={`w-full px-4 py-3.5 rounded-xl border-2 transition-all text-slate-900 font-medium bg-slate-50 focus:bg-white outline-none ${error && whatsapp.length !== 11 ? 'border-red-400 focus:border-red-500 focus:ring-4 focus:ring-red-500/10' : 'border-slate-200 focus:border-amber-500 focus:ring-4 focus:ring-amber-500/10'}`}
                     placeholder="Ex: 11999999999"
                   />
                 </div>
+
+                {error && (
+                  <div className="bg-red-50 text-red-600 px-4 py-3 rounded-xl border border-red-200 text-sm font-bold flex items-center justify-center animate-fade-in">
+                    {error}
+                  </div>
+                )}
 
                 <button
                   type="submit"

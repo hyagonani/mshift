@@ -55,6 +55,7 @@ export default function AulaUsinagemPage() {
               height={60} 
               className="h-10 sm:h-12 w-auto filter brightness-0"
               referrerPolicy="no-referrer"
+              priority
             />
           </div>
           
@@ -68,7 +69,7 @@ export default function AulaUsinagemPage() {
         </div>
       </header>
 
-      <main className="min-h-screen bg-slate-50 text-slate-700 pt-20 sm:pt-24 pb-12 sm:pb-16 relative overflow-hidden font-sans selection:bg-secondary selection:text-slate-900">
+      <main className="min-h-screen bg-slate-50 text-slate-700 pt-16 sm:pt-24 pb-12 sm:pb-16 relative overflow-hidden font-sans selection:bg-secondary selection:text-slate-900">
         {/* Ambient background glows */}
         <div className="absolute top-0 right-0 -mr-20 -mt-20 w-[350px] sm:w-[500px] h-[350px] sm:h-[500px] bg-secondary/20 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute top-1/3 left-0 -ml-20 w-[300px] sm:w-[450px] h-[300px] sm:h-[450px] bg-amber-500/20 rounded-full blur-3xl pointer-events-none" />
@@ -85,7 +86,7 @@ export default function AulaUsinagemPage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-10 relative z-10">
           
           {/* Header Title */}
-          <div className="text-center space-y-3 sm:space-y-4 mb-6 sm:mb-10">
+          <div className="text-center space-y-3 sm:space-y-4 mb-6 sm:mb-10 animate-fade-in" style={{ animationDuration: '0.6s' }}>
             <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full border border-secondary/40 bg-secondary/10 backdrop-blur-md">
               <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-700" />
               <span className="text-amber-800 text-xs sm:text-sm font-semibold tracking-wide">
@@ -104,7 +105,7 @@ export default function AulaUsinagemPage() {
           </div>
 
           {/* CTA 1 Button & Guarantee */}
-          <div className="max-w-xl mx-auto text-center space-y-3.5 mb-10 sm:mb-16">
+          <div className="max-w-xl mx-auto text-center space-y-3.5 mb-10 sm:mb-16 animate-fade-in" style={{ animationDuration: '0.8s', animationFillMode: 'both' }}>
             <JoinGroupButton
               href={WHATSAPP_GROUP_URL}
               className="group relative inline-flex items-center justify-center w-full py-3.5 sm:py-4.5 px-5 sm:px-8 rounded-xl font-extrabold text-base sm:text-xl text-slate-950 bg-[#4ADE80] hover:bg-[#22C55E] transition-all duration-200 shadow-lg shadow-green-500/20 uppercase tracking-wide border-2 border-green-300"
