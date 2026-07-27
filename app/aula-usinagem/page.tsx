@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { Metadata } from 'next';
 import { ArrowRight, CheckCircle2, MessageCircle, ShieldCheck, Calendar, Clock, Sparkles, Users } from 'lucide-react';
 import { TestimonialGallery } from '@/components/testimonial-gallery';
-import { JoinGroupButton } from '@/components/join-group-button';
+import { JoinGroupFormModal as JoinGroupButton } from '@/components/join-group-form-modal';
 
 export const metadata: Metadata = {
   title: 'Aula Ao Vivo - Usinagem & Metalúrgica | MShift',
@@ -60,8 +60,6 @@ export default function AulaUsinagemPage() {
           
           <JoinGroupButton 
             href={WHATSAPP_GROUP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
             className="bg-secondary hover:bg-yellow-500 text-slate-950 font-bold text-xs sm:text-sm py-2 px-4 rounded-full transition-colors shadow-md flex items-center gap-1.5"
           >
             <span>ENTRAR NO GRUPO</span>
@@ -109,8 +107,6 @@ export default function AulaUsinagemPage() {
           <div className="max-w-xl mx-auto text-center space-y-3.5 mb-10 sm:mb-16">
             <JoinGroupButton
               href={WHATSAPP_GROUP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
               className="group relative inline-flex items-center justify-center w-full py-3.5 sm:py-4.5 px-5 sm:px-8 rounded-xl font-extrabold text-base sm:text-xl text-slate-950 bg-[#4ADE80] hover:bg-[#22C55E] transition-all duration-200 shadow-lg shadow-green-500/20 uppercase tracking-wide border-2 border-green-300"
             >
               <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6 mr-2.5 sm:mr-3 text-slate-950 fill-slate-950/20" />
@@ -121,7 +117,7 @@ export default function AulaUsinagemPage() {
             <div className="flex items-center justify-center gap-2 text-slate-600 text-xs sm:text-sm px-3 bg-white/60 py-2.5 rounded-lg border border-slate-200 backdrop-blur-sm max-w-lg mx-auto">
               <ShieldCheck className="w-4 h-4 text-green-600 flex-shrink-0" />
               <span>
-                <strong>Não precisa deixar e-mail. Não precisa preencher formulário.</strong> O botão leva direto para o grupo silencioso do WhatsApp.
+                <strong>Vagas limitadas.</strong> Preencha seus dados rápidos para receber o link do grupo silencioso.
               </span>
             </div>
           </div>
@@ -216,8 +212,6 @@ export default function AulaUsinagemPage() {
               <div className="pt-4 sm:pt-6 text-center">
                 <JoinGroupButton
                   href={WHATSAPP_GROUP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="group relative inline-flex items-center justify-center w-full sm:w-auto py-3.5 sm:py-4.5 px-6 sm:px-10 rounded-xl font-extrabold text-base sm:text-xl text-slate-950 bg-[#4ADE80] hover:bg-[#22C55E] transition-all duration-200 shadow-lg shadow-green-500/20 uppercase tracking-wide border-2 border-green-300"
                 >
                   <Users className="w-5 h-5 sm:w-6 sm:h-6 mr-2.5 sm:mr-3 text-slate-950" />
@@ -238,7 +232,7 @@ export default function AulaUsinagemPage() {
           <p>© {new Date().getFullYear()} MShift Consultoria. Todos os direitos reservados.</p>
           <div className="flex gap-4">
             <Link href="/politica-de-privacidade" target="_blank" className="hover:text-amber-600 transition-colors">Privacidade</Link>
-            <JoinGroupButton href={WHATSAPP_GROUP_URL} target="_blank" className="hover:text-amber-600 transition-colors">Grupo VIP WhatsApp</JoinGroupButton>
+            <JoinGroupButton href={WHATSAPP_GROUP_URL} className="hover:text-amber-600 transition-colors">Grupo VIP WhatsApp</JoinGroupButton>
           </div>
         </div>
       </footer>
