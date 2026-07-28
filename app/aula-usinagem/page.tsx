@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { Metadata } from 'next';
 import { ArrowRight, CheckCircle2, ShieldCheck } from 'lucide-react';
 import { TestimonialGallery } from '@/components/testimonial-gallery';
+import { TrackedGroupLink } from '@/components/tracked-group-link';
 
 export const metadata: Metadata = {
   title: 'Sistema de Usinagem Empresarial | MShift',
@@ -67,7 +68,7 @@ export default function AulaUsinagemPage() {
             </div>
 
             <div className="pt-4 max-w-xl mx-auto">
-              <a
+              <TrackedGroupLink
                 target="_blank"
                 rel="noopener noreferrer"
                 href={WHATSAPP_GROUP_URL}
@@ -75,7 +76,7 @@ export default function AulaUsinagemPage() {
               >
                 <span>PEGAR ESTRATÉGIA GRATUITAMENTE</span>
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </a>
+              </TrackedGroupLink>
               <div className="flex items-center justify-center gap-2 mt-4 text-slate-500 text-xs sm:text-sm">
                 <span>O link leva para o grupo silencioso onde a estratégia está disponível.</span>
               </div>
@@ -101,7 +102,7 @@ export default function AulaUsinagemPage() {
             </div>
 
             <div className="max-w-md mx-auto">
-              <a
+              <TrackedGroupLink
                 target="_blank"
                 rel="noopener noreferrer"
                 href={WHATSAPP_GROUP_URL}
@@ -109,7 +110,7 @@ export default function AulaUsinagemPage() {
               >
                 <span>PEGAR ESTRATÉGIA GRATUITAMENTE</span>
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-              </a>
+              </TrackedGroupLink>
               <div className="mt-4 text-slate-400 text-xs text-center">
                 <span>O link leva para o grupo onde a Estratégia está disponível.</span>
               </div>
@@ -177,7 +178,7 @@ export default function AulaUsinagemPage() {
             </div>
 
             <div className="mt-12 max-w-xl mx-auto">
-              <a
+              <TrackedGroupLink
                 target="_blank"
                 rel="noopener noreferrer"
                 href={WHATSAPP_GROUP_URL}
@@ -185,7 +186,7 @@ export default function AulaUsinagemPage() {
               >
                 <span>PEGAR ESTRATÉGIA GRATUITAMENTE</span>
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </a>
+              </TrackedGroupLink>
               <div className="mt-4 text-slate-500 text-xs text-center">
                 <span>O link leva para o grupo onde a Estratégia está disponível.</span>
               </div>
@@ -252,7 +253,7 @@ export default function AulaUsinagemPage() {
             </div>
             
             <div className="mt-16 max-w-xl mx-auto">
-              <a
+              <TrackedGroupLink
                 target="_blank"
                 rel="noopener noreferrer"
                 href={WHATSAPP_GROUP_URL}
@@ -260,7 +261,7 @@ export default function AulaUsinagemPage() {
               >
                 <span>PEGAR ESTRATÉGIA GRATUITAMENTE</span>
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </a>
+              </TrackedGroupLink>
               <div className="mt-4 text-slate-400 text-xs text-center">
                 <span>O link leva para o grupo silencioso onde o mapa está disponível.</span>
               </div>
