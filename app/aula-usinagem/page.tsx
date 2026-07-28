@@ -3,7 +3,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Metadata } from 'next';
 import { ArrowRight, CheckCircle2, ShieldCheck } from 'lucide-react';
-import { JoinGroupFormModal as JoinGroupButton } from '@/components/join-group-form-modal';
 import { TestimonialGallery } from '@/components/testimonial-gallery';
 
 export const metadata: Metadata = {
@@ -68,13 +67,15 @@ export default function AulaUsinagemPage() {
             </div>
 
             <div className="pt-4 max-w-xl mx-auto">
-              <JoinGroupButton
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
                 href={WHATSAPP_GROUP_URL}
                 className="group relative flex items-center justify-center w-full py-4 sm:py-5 px-6 sm:px-8 rounded-full font-extrabold text-sm sm:text-lg text-white bg-[#25D366] hover:bg-[#20ba59] transition-all duration-300 shadow-lg shadow-green-500/20 uppercase tracking-wider"
               >
                 <span>PEGAR ESTRATÉGIA GRATUITAMENTE</span>
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </JoinGroupButton>
+              </a>
               <div className="flex items-center justify-center gap-2 mt-4 text-slate-500 text-xs sm:text-sm">
                 <span>O link leva para o grupo silencioso onde a estratégia está disponível.</span>
               </div>
@@ -100,13 +101,15 @@ export default function AulaUsinagemPage() {
             </div>
 
             <div className="max-w-md mx-auto">
-              <JoinGroupButton
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
                 href={WHATSAPP_GROUP_URL}
                 className="group relative flex items-center justify-center w-full py-4 px-6 rounded-full font-extrabold text-sm sm:text-base text-white bg-[#25D366] hover:bg-[#20ba59] transition-all duration-300 uppercase tracking-wide"
               >
                 <span>PEGAR ESTRATÉGIA GRATUITAMENTE</span>
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-              </JoinGroupButton>
+              </a>
               <div className="mt-4 text-slate-400 text-xs text-center">
                 <span>O link leva para o grupo onde a Estratégia está disponível.</span>
               </div>
@@ -174,13 +177,15 @@ export default function AulaUsinagemPage() {
             </div>
 
             <div className="mt-12 max-w-xl mx-auto">
-              <JoinGroupButton
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
                 href={WHATSAPP_GROUP_URL}
                 className="group relative flex items-center justify-center w-full py-4 sm:py-5 px-6 sm:px-8 rounded-full font-extrabold text-sm sm:text-lg text-white bg-[#25D366] hover:bg-[#20ba59] transition-all duration-300 shadow-lg shadow-green-500/20 uppercase tracking-wider"
               >
                 <span>PEGAR ESTRATÉGIA GRATUITAMENTE</span>
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </JoinGroupButton>
+              </a>
               <div className="mt-4 text-slate-500 text-xs text-center">
                 <span>O link leva para o grupo onde a Estratégia está disponível.</span>
               </div>
@@ -247,13 +252,15 @@ export default function AulaUsinagemPage() {
             </div>
             
             <div className="mt-16 max-w-xl mx-auto">
-              <JoinGroupButton
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
                 href={WHATSAPP_GROUP_URL}
                 className="group relative flex items-center justify-center w-full py-4 sm:py-5 px-6 sm:px-8 rounded-full font-extrabold text-sm sm:text-lg text-white bg-[#25D366] hover:bg-[#20ba59] transition-all duration-300 shadow-lg shadow-green-500/20 uppercase tracking-wider"
               >
                 <span>PEGAR ESTRATÉGIA GRATUITAMENTE</span>
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </JoinGroupButton>
+              </a>
               <div className="mt-4 text-slate-400 text-xs text-center">
                 <span>O link leva para o grupo silencioso onde o mapa está disponível.</span>
               </div>
