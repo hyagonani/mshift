@@ -27,7 +27,7 @@ const DEPOIMENTOS = [
     src: '/depoimentos/DEP-2.jpeg',
     alt: 'Depoimento Luis Sergio de 90k para 180k',
     title: 'De R$ 90k para R$ 180k (Luis Sergio)',
-    desc: 'Dobrou o faturamento da empresa após a implementação do método MShift.',
+    desc: 'Dobrou o faturamento da empresa após a implementação do Plano de Usinagem Empresarial.',
     fit: 'object-cover object-top'
   },
   {
