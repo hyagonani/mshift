@@ -2,14 +2,14 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Metadata } from 'next';
-import { ArrowRight, CheckCircle2, MessageCircle, ShieldCheck, Calendar, Clock, Sparkles, Users } from 'lucide-react';
-import { TestimonialGallery } from '@/components/testimonial-gallery';
+import { ArrowRight, CheckCircle2, ShieldCheck } from 'lucide-react';
 import { JoinGroupFormModal as JoinGroupButton } from '@/components/join-group-form-modal';
+import { TestimonialGallery } from '@/components/testimonial-gallery';
 
 export const metadata: Metadata = {
-  title: 'Aula Ao Vivo - Usinagem & Metalúrgica | MShift',
-  description: 'Descubra como gerar de 2 a 3 serviços recorrentes por mês no setor de usinagem e metalúrgica. Aula gratuita na Quarta-feira às 12h.',
-  robots: 'index, follow',
+  title: 'Sistema de Usinagem Empresarial | MShift',
+  description: 'Sistema testado para sair de 5 pra 20 clientes recorrentes na sua empresa de usinagem sem depender de indicações.',
+  robots: 'noindex, nofollow',
 };
 
 const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/D8ATC9wkT9K8IunvpfneRo?s=cl&p=i&mlu=0";
@@ -44,197 +44,229 @@ const DEPOIMENTOS = [
 export default function AulaUsinagemPage() {
   return (
     <>
-      {/* High-Performance Minimal Header */}
-      <header className="fixed top-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 h-16 flex items-center">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-between items-center">
-          <div className="flex items-center select-none">
-            <Image 
-              src="https://lh3.googleusercontent.com/d/1e0N5YBz-Ic4Xo0rPZLygOdu9_u2azxQK=w500" 
-              alt="MShift Logo" 
-              width={180} 
-              height={60} 
-              className="h-10 sm:h-12 w-auto filter brightness-0"
-              referrerPolicy="no-referrer"
-              priority
-            />
-          </div>
-          
-          <JoinGroupButton 
-            href={WHATSAPP_GROUP_URL}
-            className="bg-secondary hover:bg-yellow-500 text-slate-950 font-bold text-xs sm:text-sm py-2 px-4 rounded-full transition-colors shadow-md flex items-center gap-1.5"
-          >
-            <span>ENTRAR NO GRUPO</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </JoinGroupButton>
-        </div>
-      </header>
-
-      <main className="min-h-screen bg-slate-50 text-slate-700 pt-16 sm:pt-24 pb-12 sm:pb-16 relative overflow-hidden font-sans selection:bg-secondary selection:text-slate-900">
-        {/* Ambient background glows */}
-        <div className="absolute top-0 right-0 -mr-20 -mt-20 w-[350px] sm:w-[500px] h-[350px] sm:h-[500px] bg-secondary/20 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute top-1/3 left-0 -ml-20 w-[300px] sm:w-[450px] h-[300px] sm:h-[450px] bg-amber-500/20 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 right-0 w-[350px] sm:w-[600px] h-[350px] sm:h-[600px] bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
-
-        {/* 1. Top Alert Ribbon */}
-        <div className="bg-gradient-to-r from-amber-600 via-orange-500 to-amber-600 text-white font-bold text-xs sm:text-sm tracking-wider uppercase text-center py-2 sm:py-2.5 px-4 shadow-md flex items-center justify-center gap-2">
-          <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-yellow-200" />
-          <span>EXCLUSIVO PARA USINAGEM, METALÚRGICA E PRESTADORES INDUSTRIAIS</span>
-          <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-yellow-200" />
+      <main className="min-h-screen font-sans selection:bg-secondary selection:text-slate-900 relative">
+        
+        {/* Top Alert Ribbon */}
+        <div className="bg-background-dark text-secondary font-bold text-xs sm:text-sm tracking-widest uppercase text-center py-3 px-4 flex items-center justify-center border-b border-white/5">
+          <span>EXCLUSIVO PARA DONO DE EMPRESA DE USINAGEM</span>
         </div>
 
-        {/* Hero Section Container */}
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-10 relative z-10">
-          
-          {/* Header Title */}
-          <div className="text-center space-y-3 sm:space-y-4 mb-6 sm:mb-10 animate-fade-in" style={{ animationDuration: '0.6s' }}>
-            <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full border border-secondary/40 bg-secondary/10 backdrop-blur-md">
-              <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-700" />
-              <span className="text-amber-800 text-xs sm:text-sm font-semibold tracking-wide">
-                AULA AO VIVO: QUARTA-FEIRA ÀS 12H
-              </span>
-            </div>
-
-            <h1 className="font-sans text-2xl sm:text-5xl md:text-6xl font-black text-slate-900 tracking-tight uppercase leading-snug sm:leading-tight min-h-[4rem] sm:min-h-[7rem]">
-              NICHOS DE USINAGEM & METALÚRGICA <br className="hidden sm:inline" />
-              QUE <span className="text-gradient-gold italic font-serif">JÁ MULTIPLICARAM RESULTADOS</span>
+        {/* HERO SECTION - White Background */}
+        <section className="bg-white px-4 sm:px-6 lg:px-8 pt-12 sm:pt-20 pb-16 relative z-10">
+          <div className="max-w-4xl mx-auto text-center space-y-6 sm:space-y-8 animate-fade-in" style={{ animationDuration: '0.6s' }}>
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-black text-slate-900 tracking-tight uppercase leading-tight">
+              USINAGEM: <span className="text-gradient-gold">SISTEMA TESTADO</span> PARA SAIR DE <span className="text-gradient-gold">5 PRA 20 CLIENTES</span> NA SUA EMPRESA SEM DEPENDER DE INDICAÇÕES
             </h1>
 
-            <p className="text-slate-600 text-sm sm:text-lg max-w-2xl mx-auto font-medium leading-relaxed">
-              Descubra o método testado para gerar de <strong className="text-amber-600 font-bold">2 a 3 serviços recorrentes todos os meses</strong> no setor industrial.
-            </p>
-          </div>
-
-          {/* CTA 1 Button & Guarantee */}
-          <div className="max-w-xl mx-auto text-center space-y-3.5 mb-10 sm:mb-16 animate-fade-in" style={{ animationDuration: '0.8s', animationFillMode: 'both' }}>
-            <JoinGroupButton
-              href={WHATSAPP_GROUP_URL}
-              className="group relative inline-flex items-center justify-center w-full py-3.5 sm:py-4.5 px-5 sm:px-8 rounded-xl font-extrabold text-base sm:text-xl text-slate-950 bg-[#4ADE80] hover:bg-[#22C55E] transition-all duration-200 shadow-lg shadow-green-500/20 uppercase tracking-wide border-2 border-green-300"
-            >
-              <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6 mr-2.5 sm:mr-3 text-slate-950 fill-slate-950/20" />
-              <span>ENTRAR NO GRUPO SILENCIOSO DA AULA</span>
-              <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 ml-2.5 sm:ml-3 group-hover:translate-x-1 transition-transform" />
-            </JoinGroupButton>
-
-            <div className="flex items-center justify-center gap-2 text-slate-600 text-xs sm:text-sm px-3 bg-white/60 py-2.5 rounded-lg border border-slate-200 backdrop-blur-sm max-w-lg mx-auto">
-              <ShieldCheck className="w-4 h-4 text-green-600 flex-shrink-0" />
-              <span>
-                <strong>Vagas limitadas.</strong> Preencha seus dados rápidos para receber o link do grupo silencioso.
-              </span>
+            <div className="space-y-4 max-w-2xl mx-auto text-base sm:text-lg text-slate-700 leading-relaxed">
+              <p>
+                Pegue a Estratégia Validada para adicionar contratos previsíveis todos os meses sem precisar gastar com tráfego e sem ficar apagando incêndio na operação.
+              </p>
+              <p className="font-medium text-slate-900">
+                Toque no botão abaixo e pegue a Estratégia Validada no grupo silencioso! Na próxima <span className="font-bold">quarta (às 12h)</span>, eu abro uma aula prática e te ajudo a aplicar na sua empresa.
+              </p>
             </div>
-          </div>
 
-        </div>
-
-        {/* 2. Angled Ribbon Banner */}
-        <div className="relative my-8 sm:my-14 overflow-hidden py-3 sm:py-3.5 bg-gradient-to-r from-amber-600 via-orange-600 to-amber-600 shadow-lg border-y border-amber-400/30 transform -rotate-1 scale-105">
-          <div className="whitespace-nowrap flex text-white font-extrabold text-xs sm:text-base tracking-widest uppercase gap-6 sm:gap-8 justify-around">
-            <span>⚡ AULA GRATUITA: QUARTA-FEIRA ÀS 12H</span>
-            <span>•</span>
-            <span>COMO GERAR 2 A 3 SERVIÇOS RECORRENTES POR MÊS</span>
-            <span>•</span>
-            <span>EXCLUSIVO PARA USINAGEM & METALÚRGICA</span>
-          </div>
-        </div>
-
-        {/* 3. Proof & Testimonials Section */}
-        <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
-            <span className="text-amber-700 font-bold text-xs sm:text-sm uppercase tracking-widest bg-amber-100 px-3 py-1 rounded-full border border-amber-200 inline-block mb-2">
-              RESULTADOS REAIS NA PRÁTICA
-            </span>
-            <h2 className="font-serif text-2xl sm:text-4xl md:text-5xl font-bold text-slate-900 leading-tight">
-              Veja o que acontece quando você aplica o <span className="text-gradient-gold italic">Mapeamento Estratégico</span>
-            </h2>
-            <p className="text-slate-600 text-xs sm:text-base mt-2">
-              Faturamento real, reuniões agendadas com compradores qualificados e mensagens de confirmação no WhatsApp.
-            </p>
-          </div>
-
-          {/* Testimonial Gallery Component */}
-          {/* Using it inside a wrapper since TestimonialGallery is dark themed */}
-          <div className="bg-background-dark p-6 sm:p-8 rounded-3xl shadow-2xl border border-slate-800 relative overflow-hidden">
-             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
-             <div className="relative z-10">
-                <TestimonialGallery testimonials={DEPOIMENTOS} />
-             </div>
+            <div className="pt-4 max-w-xl mx-auto">
+              <JoinGroupButton
+                href={WHATSAPP_GROUP_URL}
+                className="group relative flex items-center justify-center w-full py-4 sm:py-5 px-6 sm:px-8 rounded-full font-extrabold text-sm sm:text-lg text-white bg-[#25D366] hover:bg-[#20ba59] transition-all duration-300 shadow-lg shadow-green-500/20 uppercase tracking-wider"
+              >
+                <span>PEGAR ESTRATÉGIA GRATUITAMENTE</span>
+                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+              </JoinGroupButton>
+              <div className="flex items-center justify-center gap-2 mt-4 text-slate-500 text-xs sm:text-sm">
+                <span>O link leva para o grupo silencioso onde a estratégia está disponível.</span>
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* 4. Core Value Proposition Box */}
-        <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-14 relative z-10">
-          <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-10 border border-slate-200 shadow-xl relative overflow-hidden">
-            <div className="space-y-5 sm:space-y-7 text-center sm:text-left relative z-10">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 border border-amber-200 text-amber-800 text-xs font-bold uppercase tracking-wider">
-                <Clock className="w-3.5 h-3.5 text-amber-600" />
-                Quarta-feira às 12h • Ao Vivo e Gratuito
+        {/* RESULTS SECTION - Dark Blue Background */}
+        <section className="bg-background-dark px-4 sm:px-6 lg:px-8 py-16 relative z-10 border-y border-white/5">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-white font-bold text-lg sm:text-2xl mb-10">
+              Resultados da estratégia que você vai ter acesso:
+            </h2>
+            
+            <div className="max-w-2xl mx-auto mb-10">
+              <blockquote className="font-serif text-2xl sm:text-3xl text-white italic leading-relaxed">
+                "Esses três pilares, a gente chama de Sistema de Usinagem Empresarial. Em <span className="text-secondary font-bold">6 meses, 70% de crescimento</span>."
+              </blockquote>
+            </div>
+
+            <div className="max-w-5xl mx-auto mb-16">
+              <TestimonialGallery testimonials={DEPOIMENTOS} />
+            </div>
+
+            <div className="max-w-md mx-auto">
+              <JoinGroupButton
+                href={WHATSAPP_GROUP_URL}
+                className="group relative flex items-center justify-center w-full py-4 px-6 rounded-full font-extrabold text-sm sm:text-base text-white bg-[#25D366] hover:bg-[#20ba59] transition-all duration-300 uppercase tracking-wide"
+              >
+                <span>PEGAR ESTRATÉGIA GRATUITAMENTE</span>
+                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              </JoinGroupButton>
+              <div className="mt-4 text-slate-400 text-xs text-center">
+                <span>O link leva para o grupo onde a Estratégia está disponível.</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* PILARES SECTION - White Background */}
+        <section className="bg-white px-4 sm:px-6 lg:px-8 py-16 relative z-10">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
+                Na aula você vai entender como implementar:
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* Pilar 1 */}
+              <div className="bg-card-dark p-6 sm:p-8 rounded-2xl flex flex-col items-start hover:shadow-xl transition-shadow border border-surface-dark">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-secondary font-black text-4xl leading-none">1</span>
+                  <span className="text-secondary font-bold text-xs uppercase tracking-widest border-l-2 border-secondary/30 pl-3">
+                    Plano de Usinagem Empresarial
+                  </span>
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3">
+                  Assumir o controle da empresa e sair do operacional
+                </h3>
+                <p className="text-slate-300 leading-relaxed text-sm">
+                  Pare de apagar incêndios no chão de fábrica e passe a conduzir a sua operação com uma direção clara.
+                </p>
               </div>
 
-              <h2 className="font-serif text-xl sm:text-4xl font-bold text-slate-900 leading-tight sm:leading-snug">
-                Nessa aula gratuita vou te mostrar como usar o método MShift para <span className="text-gradient-gold italic">gerar de 2 a 3 serviços recorrentes</span> todos os meses no setor de usinagem e metalúrgica
-              </h2>
-
-              <div className="space-y-4 text-slate-600 text-sm sm:text-lg leading-relaxed border-t border-slate-200 pt-5">
-                <p>
-                  Essa aula faz sentido para <strong>dono de oficina de usinagem, caldeiraria, tornearia, indústria metalúrgica, gestor de vendas ou prestador de serviço B2B</strong> que já tem uma estrutura operando e precisa gerar novos contratos com mais previsibilidade e lucro.
+              {/* Pilar 2 */}
+              <div className="bg-card-dark p-6 sm:p-8 rounded-2xl flex flex-col items-start hover:shadow-xl transition-shadow border border-surface-dark">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-secondary font-black text-4xl leading-none">2</span>
+                  <span className="text-secondary font-bold text-xs uppercase tracking-widest border-l-2 border-secondary/30 pl-3">
+                    Operação Sob Controle
+                  </span>
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3">
+                  Fazer a operação rodar sem depender de você
+                </h3>
+                <p className="text-slate-300 leading-relaxed text-sm">
+                  Como transformar o que está na sua cabeça em processos, delegar com segurança e focar apenas na lucratividade.
                 </p>
+              </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4 pt-3 text-left">
-                  <div className="flex items-start gap-3 bg-slate-50 p-3.5 sm:p-4 rounded-xl border border-slate-100">
-                    <CheckCircle2 className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-xs sm:text-sm text-slate-700">
-                      <strong>Fim da montanha-russa:</strong> Crie um processo ativo de captação de clientes industriais.
-                    </span>
-                  </div>
+              {/* Pilar 3 */}
+              <div className="bg-card-dark p-6 sm:p-8 rounded-2xl flex flex-col items-start hover:shadow-xl transition-shadow border border-surface-dark">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-secondary font-black text-4xl leading-none">3</span>
+                  <span className="text-secondary font-bold text-xs uppercase tracking-widest border-l-2 border-secondary/30 pl-3">
+                    Produção de Alta Margem
+                  </span>
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3">
+                  Crescer com lucro e sem depender de indicações
+                </h3>
+                <p className="text-slate-300 leading-relaxed text-sm">
+                  Como implementar um comercial objetivo para atrair grandes clientes e aumentar suas margens sem gastar com tráfego.
+                </p>
+              </div>
+            </div>
 
-                  <div className="flex items-start gap-3 bg-slate-50 p-3.5 sm:p-4 rounded-xl border border-slate-100">
-                    <CheckCircle2 className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-xs sm:text-sm text-slate-700">
-                      <strong>Serviços Recorrentes:</strong> Garanta contratos de médio e longo prazo para manter o caixa forte.
-                    </span>
-                  </div>
+            <div className="mt-12 max-w-xl mx-auto">
+              <JoinGroupButton
+                href={WHATSAPP_GROUP_URL}
+                className="group relative flex items-center justify-center w-full py-4 sm:py-5 px-6 sm:px-8 rounded-full font-extrabold text-sm sm:text-lg text-white bg-[#25D366] hover:bg-[#20ba59] transition-all duration-300 shadow-lg shadow-green-500/20 uppercase tracking-wider"
+              >
+                <span>PEGAR ESTRATÉGIA GRATUITAMENTE</span>
+                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+              </JoinGroupButton>
+              <div className="mt-4 text-slate-500 text-xs text-center">
+                <span>O link leva para o grupo onde a Estratégia está disponível.</span>
+              </div>
+            </div>
+          </div>
+        </section>
 
-                  <div className="flex items-start gap-3 bg-slate-50 p-3.5 sm:p-4 rounded-xl border border-slate-100">
-                    <CheckCircle2 className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-xs sm:text-sm text-slate-700">
-                      <strong>Sem dependência de indicação:</strong> Saiba como abordar compradores qualificados com precisão.
-                    </span>
-                  </div>
+        {/* MENTOR SECTION - Dark Blue Background */}
+        <section className="bg-background-dark py-16 relative z-10 border-t border-white/5">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-secondary mb-2">
+                Quem será seu professor?
+              </h2>
+              <p className="text-slate-300 mt-2">
+                Agora que já viu os resultados, conheça quem vai mostrar como aplicar esse sistema na sua empresa.
+              </p>
+            </div>
 
-                  <div className="flex items-start gap-3 bg-slate-50 p-3.5 sm:p-4 rounded-xl border border-slate-100">
-                    <CheckCircle2 className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-xs sm:text-sm text-slate-700">
-                      <strong>Atração Direta:</strong> Leve o cliente direto da atração para o grupo e agendamento de reuniões.
-                    </span>
-                  </div>
+            <div className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16">
+              <div className="w-64 sm:w-80 flex-shrink-0 relative">
+                <div className="absolute inset-0 bg-secondary translate-x-4 translate-y-4 rounded-lg"></div>
+                <Image 
+                  sizes="(min-width: 768px) 320px, 256px" 
+                  alt="Willian Pereira Portrait" 
+                  width={500} 
+                  height={625} 
+                  className="relative rounded-lg shadow-xl w-full object-cover aspect-[4/5] filter" 
+                  src="https://drive.google.com/thumbnail?id=1NVFgZNcUNVbQvT9h1X4MSaBOB4fXTmdt&sz=w1000" 
+                  referrerPolicy="no-referrer" 
+                />
+              </div>
+
+              <div className="text-center md:text-left space-y-4 max-w-md">
+                <h3 className="text-2xl font-bold text-secondary">Willian Pereira</h3>
+                <ul className="space-y-3 text-slate-300 text-sm sm:text-base text-left">
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 bg-secondary rounded-full mt-2 flex-shrink-0"></span>
+                    <span>Sócio da MShift Consultoria</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 bg-secondary rounded-full mt-2 flex-shrink-0"></span>
+                    <span>Mais de 20 anos de experiência</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 bg-secondary rounded-full mt-2 flex-shrink-0"></span>
+                    <span>Especialista em escala para empresas B2B e Usinagem</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 bg-secondary rounded-full mt-2 flex-shrink-0"></span>
+                    <span>Mais de R$ 30 milhões gerados em faturamento junto aos clientes</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 bg-secondary rounded-full mt-2 flex-shrink-0"></span>
+                    <span>Mais de 150 empresas transformadas</span>
+                  </li>
+                </ul>
+                <div className="pt-4 border-t border-surface-dark mt-6 text-left">
+                  <p className="italic text-slate-400 text-sm">
+                    "Nesta aula, eu vou te mostrar o sistema utilizado para tirar o dono do operacional e gerar novos clientes previsíveis para sua empresa de usinagem."
+                  </p>
                 </div>
               </div>
-
-              {/* CTA 2 Button */}
-              <div className="pt-4 sm:pt-6 text-center">
-                <JoinGroupButton
-                  href={WHATSAPP_GROUP_URL}
-                  className="group relative inline-flex items-center justify-center w-full sm:w-auto py-3.5 sm:py-4.5 px-6 sm:px-10 rounded-xl font-extrabold text-base sm:text-xl text-slate-950 bg-[#4ADE80] hover:bg-[#22C55E] transition-all duration-200 shadow-lg shadow-green-500/20 uppercase tracking-wide border-2 border-green-300"
-                >
-                  <Users className="w-5 h-5 sm:w-6 sm:h-6 mr-2.5 sm:mr-3 text-slate-950" />
-                  <span>ENTRAR NO GRUPO DA AULA (QUARTA ÀS 12H)</span>
-                  <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 ml-2.5 sm:ml-3 group-hover:translate-x-1 transition-transform" />
-                </JoinGroupButton>
+            </div>
+            
+            <div className="mt-16 max-w-xl mx-auto">
+              <JoinGroupButton
+                href={WHATSAPP_GROUP_URL}
+                className="group relative flex items-center justify-center w-full py-4 sm:py-5 px-6 sm:px-8 rounded-full font-extrabold text-sm sm:text-lg text-white bg-[#25D366] hover:bg-[#20ba59] transition-all duration-300 shadow-lg shadow-green-500/20 uppercase tracking-wider"
+              >
+                <span>PEGAR ESTRATÉGIA GRATUITAMENTE</span>
+                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+              </JoinGroupButton>
+              <div className="mt-4 text-slate-400 text-xs text-center">
+                <span>O link leva para o grupo silencioso onde o mapa está disponível.</span>
               </div>
-
             </div>
           </div>
         </section>
 
       </main>
 
-      {/* Lightweight Footer */}
-      <footer className="bg-white border-t border-slate-200 py-8">
-        <div className="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+      {/* FOOTER */}
+      <footer className="bg-background-dark border-t border-surface-dark py-8">
+        <div className="max-w-4xl mx-auto px-4 text-center text-xs text-slate-500">
           <p>© {new Date().getFullYear()} MShift Consultoria. Todos os direitos reservados.</p>
-          <div className="flex gap-4">
-            <Link href="/politica-de-privacidade" target="_blank" className="hover:text-amber-600 transition-colors">Privacidade</Link>
-            <JoinGroupButton href={WHATSAPP_GROUP_URL} className="hover:text-amber-600 transition-colors">Grupo VIP WhatsApp</JoinGroupButton>
-          </div>
         </div>
       </footer>
     </>
