@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   robots: 'noindex, nofollow',
 };
 
-const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/D8ATC9wkT9K8IunvpfneRo?s=cl&p=i&mlu=0";
+const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/EdFHW9YBGee1W93NJ4rGKW";
 
 const DEPOIMENTOS = [
   {

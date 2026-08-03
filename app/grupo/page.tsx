@@ -23,7 +23,7 @@ export default function GrupoPage() {
         {/* Tag <a> oculta mantida exclusivamente para o deeplink funcionar nativamente no mobile */}
         <a 
           ref={linkRef}
-          href="https://chat.whatsapp.com/D8ATC9wkT9K8IunvpfneRo"
+          href="https://chat.whatsapp.com/EdFHW9YBGee1W93NJ4rGKW"
           className="hidden"
           aria-hidden="true"
         >
