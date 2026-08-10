@@ -6,15 +6,31 @@ export default function LivePage() {
   const linkRef = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
-    // Aguarda 1 segundo para garantir que o evento de conversão
-    // configurado no Facebook Ads (baseado na URL /live) tenha tempo de ser disparado
+    // Dispara evento via API (Server-Side) para garantir o track mesmo fechando a página
+    fetch('/api/meta-conversions', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      keepalive: true, // Garante que a requisição não seja cancelada no redirecionamento
+      body: JSON.stringify({
+        eventName: 'PageView',
+        contentName: 'Live Redirect',
+        eventSourceUrl: window.location.href
+      })
+    }).catch(console.error);
+
+    // Tenta disparar o client-side também
+    if (typeof window !== 'undefined' && (window as any).fbq) {
+      (window as any).fbq('track', 'PageView');
+    }
+
+    // Reduzido para 500ms (apenas para a UI dar uma leve piscada e ir direto)
     const timer = setTimeout(() => {
       if (linkRef.current) {
         linkRef.current.click();
       } else {
-        window.location.href = "https://meet.google.com/sor-qnvq-ieo";
+        window.location.href = "https://meet.google.com/veo-snpb-ngs?authuser=0";
       }
-    }, 1000);
+    }, 500);
     
     return () => clearTimeout(timer);
   }, []);
@@ -31,7 +47,7 @@ export default function LivePage() {
         {/* Tag <a> oculta mantida para o deeplink funcionar nativamente no mobile (abrir app do Meet) */}
         <a 
           ref={linkRef}
-          href="https://meet.google.com/sor-qnvq-ieo"
+          href="https://meet.google.com/veo-snpb-ngs?authuser=0"
           className="hidden"
           aria-hidden="true"
         >

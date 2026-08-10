@@ -58,8 +58,8 @@ export function Navbar() {
                 {link.name}
               </Link>
             ))}
-            <Link className="bg-secondary hover:bg-yellow-600 text-white  font-bold py-2.5 px-6 rounded-full transition-all duration-300 shadow-lg shadow-secondary/20" href="/#contato">
-              Agendar Mapeamento
+            <Link className="bg-secondary hover:bg-yellow-600 text-white  font-bold py-2.5 px-6 rounded-full transition-all duration-300 shadow-lg shadow-secondary/20" href="/grupo">
+              Entrar no Grupo
             </Link>
           </div>
 
@@ -113,11 +113,11 @@ export function Navbar() {
                 className="pt-6 px-4"
               >
                 <Link 
-                  href="/#contato"
+                  href="/grupo"
                   onClick={() => setIsOpen(false)}
                   className="flex items-center justify-center w-full bg-secondary hover:bg-yellow-600 text-white  font-bold py-4 rounded-xl transition-all shadow-xl shadow-secondary/20"
                 >
-                  Agendar Mapeamento
+                  Entrar no Grupo
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </motion.div>

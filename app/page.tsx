@@ -32,13 +32,13 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
               <div className="inline-block border border-secondary/50 rounded-full px-4 py-1.5 bg-secondary/10 backdrop-blur-sm">
-                <span className="text-secondary text-xs font-bold tracking-widest uppercase">Consultoria &amp; Mentoria Estratégica</span>
+                <span className="text-secondary text-xs font-bold tracking-widest uppercase">Sistema de Usinagem Empresarial</span>
               </div>
               <h1 className="font-serif text-4xl lg:text-6xl font-bold leading-tight text-white">
-                Mapeamento Estratégico: O caminho para <span className="italic text-gradient-gold">dobrar o faturamento</span> da sua empresa
+                <span className="text-gradient-gold">Sistema de Usinagem Empresarial:</span> O caminho para <span className="italic text-gradient-gold">dobrar o faturamento</span> da sua empresa
               </h1>
               <p className="text-lg text-slate-400 max-w-lg leading-relaxed">
-                Clareza estratégica, decisões firmes e execução para sustentar crescimento com margem. Saia do operacional e assuma o controle do seu negócio B2B.
+                Aumente o ticket médio e deixe de ser refém das indicações. Saiba como a Metalux usou nosso sistema para transformar a operação sem precisar trabalhar 12 horas por dia.
               </p>
               
               <div className="relative flex lg:hidden justify-center items-end">
@@ -46,8 +46,8 @@ export default function Home() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <Link className="flex items-center justify-center bg-gradient-gold hover:brightness-110 text-background-dark font-bold text-lg py-4 px-8 rounded-lg shadow-xl shadow-secondary/20 transition-all duration-300 transform hover:-translate-y-1" href="/#contato">
-                  Agendar Mapeamento
+                <Link className="flex items-center justify-center bg-gradient-gold hover:brightness-110 text-background-dark font-bold text-lg py-4 px-8 rounded-lg shadow-xl shadow-secondary/20 transition-all duration-300 transform hover:-translate-y-1" href="/grupo">
+                  Participar da Aula Gratuita
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
                 <div className="flex items-center gap-4 px-4 py-2 border-l border-slate-700">
@@ -110,26 +110,26 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-background-dark font-serif text-3xl md:text-4xl font-bold mb-4">
-              O gargalo invisível que trava seu crescimento
+              A Realidade do Dono de Usinagem
             </h2>
             <p className="text-slate-600 text-lg">
-              Muitos fundadores atingem um platô de faturamento e não conseguem identificar a causa raiz. Se você se identifica com os pontos abaixo, a MShift é para você.
+              O dono trabalhava 12h por dia e acordava às 5h da manhã para resolver problemas que deveriam ser do time. Essa era a situação quando a Metalux nos procurou:
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-slate-50 p-8 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
               <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mb-6">
-                <EyeOff className="text-red-600 w-6 h-6" />
+                <Clock className="text-red-600 w-6 h-6" />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">Gestão &quot;Eu-quipe&quot;</h3>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">Preso no Chão de Fábrica</h3>
               <ul className="space-y-3">
                 <li className="flex items-start gap-2">
                   <X className="text-red-500 w-4 h-4 mt-1" />
-                  <span className="text-slate-600 text-sm">Centralização excessiva de decisões</span>
+                  <span className="text-slate-600 text-sm">Sem previsibilidade ou processos</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <X className="text-red-500 w-4 h-4 mt-1" />
-                  <span className="text-slate-600 text-sm">Time operacional sem autonomia</span>
+                  <span className="text-slate-600 text-sm">Sem saber como sair dessa situação</span>
                 </li>
               </ul>
             </div>
@@ -137,31 +137,31 @@ export default function Home() {
               <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mb-6">
                 <TrendingDown className="text-red-600 w-6 h-6" />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">Crescimento Estagnado</h3>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">Tentativas Frustradas</h3>
               <ul className="space-y-3">
                 <li className="flex items-start gap-2">
                   <X className="text-red-500 w-4 h-4 mt-1" />
-                  <span className="text-slate-600 text-sm">Faturamento oscila, mas não escala</span>
+                  <span className="text-slate-600 text-sm">Tentou delegar, mas os problemas voltaram mais fortes</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <X className="text-red-500 w-4 h-4 mt-1" />
-                  <span className="text-slate-600 text-sm">Lucro corroído por ineficiências</span>
+                  <span className="text-slate-600 text-sm">Dono precisou reassumir a operação</span>
                 </li>
               </ul>
             </div>
             <div className="bg-slate-50 p-8 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mb-6">
-                <Brain className="text-red-600 w-6 h-6" />
+              <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-6">
+                <BadgeCheck className="text-green-600 w-6 h-6" />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">Falta de Processos</h3>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">O Que Não Mudamos</h3>
               <ul className="space-y-3">
                 <li className="flex items-start gap-2">
-                  <X className="text-red-500 w-4 h-4 mt-1" />
-                  <span className="text-slate-600 text-sm">Tudo depende do humor do dono</span>
+                  <BadgeCheck className="text-green-500 w-4 h-4 mt-1" />
+                  <span className="text-slate-600 text-sm">Não paramos a produção</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <X className="text-red-500 w-4 h-4 mt-1" />
-                  <span className="text-slate-600 text-sm">Vendas imprevisíveis e sem método</span>
+                  <BadgeCheck className="text-green-500 w-4 h-4 mt-1" />
+                  <span className="text-slate-600 text-sm">Apenas aplicamos 3 etapas simples</span>
                 </li>
               </ul>
             </div>
@@ -173,9 +173,9 @@ export default function Home() {
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
-            <span className="text-secondary font-bold tracking-widest uppercase text-sm">O Método MShift</span>
+            <span className="text-secondary font-bold tracking-widest uppercase text-sm">O Método</span>
             <h2 className="text-white font-serif text-3xl md:text-5xl font-bold mt-2">
-              A Estrutura do Crescimento
+              Os 3 Pilares do Sistema de Usinagem Empresarial
             </h2>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
@@ -184,9 +184,9 @@ export default function Home() {
               <div className="mb-6">
                 <span className="text-5xl font-serif text-slate-700 group-hover:text-secondary/20 transition-colors">01</span>
               </div>
-              <h3 className="text-xl font-bold text-white mb-4 group-hover:text-secondary transition-colors">Mapeamento Estratégico</h3>
+              <h3 className="text-xl font-bold text-white mb-4 group-hover:text-secondary transition-colors">Plano de Usinagem Empresarial</h3>
               <p className="text-slate-400 leading-relaxed">
-                Mapeamos cada engrenagem da sua empresa para encontrar onde o dinheiro está vazando e onde estão as oportunidades ocultas de receita.
+                Entendimento claro da operação. Você deixa de apagar incêndios e assume o controle real da sua empresa, parando de microgerenciar.
               </p>
             </div>
             <div className="bg-card-dark p-8 rounded-none border border-secondary shadow-[0_0_30px_rgba(231,170,27,0.1)] group relative transform md:-translate-y-4">
@@ -194,9 +194,9 @@ export default function Home() {
               <div className="mb-6">
                 <span className="text-5xl font-serif text-secondary opacity-40">02</span>
               </div>
-              <h3 className="text-xl font-bold text-white mb-4 text-secondary">Plano de Ação Tático</h3>
+              <h3 className="text-xl font-bold text-white mb-4 text-secondary">Operação Sob Controle</h3>
               <p className="text-slate-300 leading-relaxed">
-                Não entregamos um PDF teórico. Você sai com um plano de 180 dias com responsáveis, prazos e KPIs definidos para execução imediata.
+                O que existia na sua cabeça vira processo documentado. A empresa não depende mais de você para decisões básicas e o time ganha poder no operacional.
               </p>
               <div className="mt-6">
                 <span className="inline-flex items-center text-xs font-bold text-background-dark bg-secondary px-3 py-1 rounded-sm">
@@ -209,15 +209,15 @@ export default function Home() {
               <div className="mb-6">
                 <span className="text-5xl font-serif text-slate-700 group-hover:text-secondary/20 transition-colors">03</span>
               </div>
-              <h3 className="text-xl font-bold text-white mb-4 group-hover:text-secondary transition-colors">Acompanhamento Pesronalizado</h3>
+              <h3 className="text-xl font-bold text-white mb-4 group-hover:text-secondary transition-colors">Produção de Alta Margem</h3>
               <p className="text-slate-400 leading-relaxed">
-                Reuniões de board para garantir a execução. Você não estará sozinho nas tomadas de decisão difíceis. Somos seus sócios estratégicos.
+                Reduza a dependência de indicações. Ganhe poder de negociação para clientes grandes e cresça com mais lucro usando um comercial objetivo.
               </p>
             </div>
           </div>
           <div className="mt-16 text-center">
-            <Link className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-200 border border-secondary hover:bg-secondary/10 rounded-lg" href="/metodo">
-              Quero conhecer a metodologia
+            <Link className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-200 border border-secondary hover:bg-secondary/10 rounded-lg" href="/grupo">
+              Entrar no Grupo de WhatsApp da Aula
             </Link>
           </div>
         </div>
@@ -343,28 +343,28 @@ export default function Home() {
             <h2 className="text-dark-blue font-serif text-3xl md:text-4xl font-bold mb-4">
               Perguntas Frequentes
             </h2>
-            <p className="text-slate-600 font-montserrat">Tire suas principais dúvidas sobre como o Mapeamento Estratégico pode transformar seu negócio.</p>
+            <p className="text-slate-600 font-montserrat">Tire suas principais dúvidas sobre como o Sistema de Usinagem Empresarial pode transformar seu negócio.</p>
           </div>
           <div className="space-y-4">
             <FaqItem 
-              question="O que é o Mapeamento Estratégico?" 
-              answer="É um mapeamento 360º da sua operação atual para identificar gargalos de faturamento e escala." 
+              question="O que é o Sistema de Usinagem Empresarial?" 
+              answer="É um mapeamento 360º da sua operação atual para identificar gargalos, definir processos claros e implementar uma produção de alta margem." 
             />
             <FaqItem 
               question="Para quem é indicado?" 
-              answer="Donos de empresas que faturam entre R$ 15k e R$ 50k e querem sair do operacional, dobrar o faturamento e otimizar os processos." 
+              answer="Donos de empresas de usinagem que querem sair do operacional (chão de fábrica), faturar mais com alto ticket e parar de depender só de indicações." 
             />
             <FaqItem 
               question="Quanto tempo dura a implementação?" 
-              answer="O plano é desenhado para gerar resultados nos primeiros 90 dias e tem duração de 180 dias." 
+              answer="A estruturação dura cerca de 6 meses (180 dias), com resultados e melhorias visíveis logo nos primeiros passos de controle da operação." 
             />
             <FaqItem 
-              question="Preciso parar minha operação para aplicar?" 
-              answer="Não. O método é focado em ajustes que não interrompem o fluxo de trabalho, mas otimizam e aceleram o andamento dos setores da empresa." 
+              question="Preciso parar minha produção para aplicar?" 
+              answer="De forma alguma! O método é focado em ajustes paralelos que não interrompem o fluxo do chão de fábrica." 
             />
             <FaqItem 
               question="E se eu não gostar do resultado?" 
-              answer="Oferecemos uma garantia incondicional de 7 dias." 
+              answer="Temos garantia incondicional e o acompanhamento necessário para garantir que o seu operacional não pare." 
             />
           </div>
         </div>
